@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+.bookmark-widget{
+	padding-bottom:7px;
+	
+}
+
+.tab-content{
+	padding-top: 25px;
+}
+
+.tag-allCategories{
+	font-weight: bold;
+	padding-bottom:5px;
+}
