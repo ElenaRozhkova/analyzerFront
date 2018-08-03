@@ -42,7 +42,7 @@ function ajaxFunction()
 
 // This function is going to read the user ID from a form, send it to the server
 // for verification
-function validateUserId() 
+function __validateUserId() 
 {
     var userName = document.getElementById("f_userid");
     var userPwd = document.getElementById("f_pwd");

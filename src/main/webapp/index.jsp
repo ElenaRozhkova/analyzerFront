@@ -24,7 +24,6 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous">
         </script>
-        <script type="text/javascript" src="dbanalyzer/js/userdetails_validator.js"></script>
         <script src="dbanalyzer/js/main.js"></script>
         <title>Deutsche Bank Case Study</title>
     </head>
