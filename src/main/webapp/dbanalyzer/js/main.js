@@ -156,20 +156,20 @@ function setMessageUsingDOM(user)
         target.html("<div>ERROR IN PAGE</div>");
 }
 
-function apiCall(func, data) {
-	// Dummy
-	return {
-		statusCode: 1,
-		payload: {
-			success: true
-		}
-	}
-}
-
 var analyzerApp = angular.module('dbAnalyzer', ["ngRoute"]);
 
-analyzerApp.controller('dbAnalyzerCtrl', function dbAnalyzerAppCtrl($scope) {
+analyzerApp.controller('dbAnalyzerCtrl', function dbAnalyzerAppCtrl($scope, $http) {
 	$scope.username;
+	
+	$scope.apiCall = function() {	
+		
+		return {
+			statusCode: 1,
+			payload: {
+				success: true
+			}
+		}
+	}
 	
 	$scope.doLogin = function() {
 		angular.element("#alert").removeClass("alert-success alert-info alert-warning alert-danger").hide();
@@ -177,7 +177,7 @@ analyzerApp.controller('dbAnalyzerCtrl', function dbAnalyzerAppCtrl($scope) {
 			username : $scope.loginUsername,
 			password : $scope.loginPassword
 		};
-		var result = apiCall("doLogin", dataObj)
+		var result = $scope.apiCall("login", dataObj)
 		if (result.statusCode === 1 && result.payload.success) {
 			window.location.href='#!user';
 			$scope.username = $scope.loginUsername;

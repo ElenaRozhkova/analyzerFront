@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="globalHelper" class="deutschebank.core.ApplicationScopeHelper" scope="application"/>
+<!-- <jsp:useBean id="globalHelper" class="deutschebank.core.ApplicationScopeHelper" scope="application"/> -->
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +37,7 @@
     		
     	</div>
         <%
-            String  dbStatus = "DB NOT CONNECTED";
+            /* String  dbStatus = "DB NOT CONNECTED";
 
             globalHelper.setInfo("Set any value here for application level access");
             boolean connectionStatus = globalHelper.bootstrapDBConnection();
@@ -45,12 +45,12 @@
             if( connectionStatus )
             {
                 dbStatus = "Selvyn, you have successfully connected the Deutsche Bank server";
-            }
+            } */
         %>
-        <h2><%= dbStatus %></h2>
+        <h2><%= //dbStatus %></h2>
         <%
-            if( connectionStatus )
-            {
+            //if( connectionStatus )
+            //{
         %>
             	<main class="container">
     		<div class="starter-template">
@@ -59,7 +59,7 @@
     	</main>
         
         <%
-            }
+           // }
         %>
     </body>
 </html>
