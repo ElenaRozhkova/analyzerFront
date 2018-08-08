@@ -155,3 +155,49 @@ function setMessageUsingDOM(user)
     else
         target.html("<div>ERROR IN PAGE</div>");
 }
+
+function apiCall(func, data) {
+	// Dummy
+	return {
+		statusCode: 1,
+		payload: {
+			success: true
+		}
+	}
+}
+
+var analyzerApp = angular.module('dbAnalyzer', ["ngRoute"]);
+
+analyzerApp.controller('dbAnalyzerCtrl', function dbAnalyzerAppCtrl($scope) {
+	$scope.username;
+	
+	$scope.doLogin = function() {
+		angular.element("#alert").removeClass("alert-success alert-info alert-warning alert-danger").hide();
+		var dataObj = {
+			username : $scope.loginUsername,
+			password : $scope.loginPassword
+		};
+		var result = apiCall("doLogin", dataObj)
+		if (result.statusCode === 1 && result.payload.success) {
+			window.location.href='#!user';
+			$scope.username = $scope.loginUsername;
+		} else {
+			angular.element("#alert").html("<strong>Invalid Login</strong>").addClass("alert-danger").slideDown();
+		}
+	}
+	
+	
+	
+	
+});
+
+analyzerApp.config(function ($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "login.htm"
+    })
+    .when("/user", {
+        templateUrl : "start.htm"
+    })
+
+});

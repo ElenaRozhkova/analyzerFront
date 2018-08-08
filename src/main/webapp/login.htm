@@ -1,0 +1,10 @@
+<h3>User verification is required</h3>
+        <form action = "" id="loginForm">
+            <p>User ID: <input ng-model="loginUsername" type="text" id="f_userid" name="usr"></p>
+            <p>Password: <input ng-model="loginPassword" type="password" id="f_pwd" name="pwd"></p>
+            <button type="button" ng-click="validateUserId()">Verify</button>
+            <input type = "submit" value = "Submit" />
+        </form>
+        <p>
+            <div id="userIdMessage"></div>
+        </p>

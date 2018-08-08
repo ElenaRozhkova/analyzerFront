@@ -19,6 +19,10 @@
         <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
         </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.js">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.js">
+        </script>
         <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
@@ -28,7 +32,10 @@
         <title>Deutsche Bank Case Study</title>
     </head>
     
-    <body>
+    <body ng-controller="dbAnalyzerCtrl">
+        	<div class="alert" id="alert" role="alert" style="display:none;">
+    		
+    	</div>
         <%
             String  dbStatus = "DB NOT CONNECTED";
 
@@ -45,16 +52,12 @@
             if( connectionStatus )
             {
         %>
-        <h3>User verification is required</h3>
-        <form action = "" id="loginForm">
-            <p>User ID: <input type="text" id="f_userid" name="usr"></p>
-            <p>Password: <input type="text" id="f_pwd" name="pwd"></p>
-            <button type="button" onclick="validateUserId()">Verify</button>
-            <input type = "submit" value = "Submit" />
-        </form>
-        <p>
-            <div id="userIdMessage"></div>
-        </p>
+            	<main class="container">
+    		<div class="starter-template">
+    			<div ng-view></div>
+    		</div>
+    	</main>
+        
         <%
             }
         %>
