@@ -5,9 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="globalHelper" class="deutschebank.core.ApplicationScopeHelper" scope="application"/>
 
 <!DOCTYPE html>
-<html ng-app="dbAnalyzer">
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet"
@@ -35,12 +36,30 @@
         	<div class="alert" id="alert" role="alert" style="display:none;">
     		
     	</div>
-        <h2></h2>
+        <%
+            String  dbStatus = "DB NOT CONNECTED";
+
+            globalHelper.setInfo("Set any value here for application level access");
+            boolean connectionStatus = globalHelper.bootstrapDBConnection();
+            
+            if( connectionStatus )
+            {
+                dbStatus = "Selvyn, you have successfully connected the Deutsche Bank server";
+            }
+        %>
+        <h2><%= dbStatus %></h2>
+        <%
+            if( connectionStatus )
+            {
+        %>
             	<main class="container">
     		<div class="starter-template">
-    		
     			<div ng-view></div>
     		</div>
     	</main>
+        
+        <%
+           }
+        %>
     </body>
 </html>

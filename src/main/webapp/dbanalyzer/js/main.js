@@ -158,27 +158,34 @@ function setMessageUsingDOM(user)
 
 var analyzerApp = angular.module('dbAnalyzer', ["ngRoute"]);
 
-analyzerApp.controller('dbAnalyzerCtrl', function dbAnalyzerAppCtrl($scope, $http) {
+analyzerApp.controller('dbAnalyzerCtrl', ['$scope','$http', function dbAnalyzerAppCtrl($scope, $http) {
 	$scope.username;
-	
-	$scope.apiCall = function() {	
-		
+	$scope.apiCall = function(func, data) {	
+		dataObj = {
+				func: func,
+				payload: data
+		};
+		/*$http.post('/url', dataObj).then(
+				function(response) {
+					if (response.data.statusCode === 1) {
+						return response.data.payload;
+					} else {
+						return false;
+					}
+				}, function(response) {
+						return false;
+				});
+		*/
 		return {
-			statusCode: 1,
-			payload: {
 				success: true
-			}
 		}
 	}
 	
 	$scope.doLogin = function() {
 		angular.element("#alert").removeClass("alert-success alert-info alert-warning alert-danger").hide();
-		var dataObj = {
-			username : $scope.loginUsername,
-			password : $scope.loginPassword
-		};
-		var result = $scope.apiCall("login", dataObj)
-		if (result.statusCode === 1 && result.payload.success) {
+		var result = $scope.apiCall("login", {username: $scope.loginUsername, password: $scope.loginPassword});
+		console.log(result);
+		if (result.success) {
 			window.location.href='#!user';
 			$scope.username = $scope.loginUsername;
 		} else {
@@ -186,11 +193,7 @@ analyzerApp.controller('dbAnalyzerCtrl', function dbAnalyzerAppCtrl($scope, $htt
 		}
 	}
 	
-	
-	
-	
-});
-
+}]);
 analyzerApp.config(function ($routeProvider) {
     $routeProvider
     .when("/", {
