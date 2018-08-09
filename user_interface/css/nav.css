@@ -9,7 +9,3 @@
 .navbar a{
   color: #fff;
 }
-
-.navbar a:focus, a:hover{
-  text-decoration: underline;
-}
