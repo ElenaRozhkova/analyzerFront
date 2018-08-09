@@ -5,10 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="globalHelper" class="deutschebank.core.ApplicationScopeHelper" scope="application"/>
 
 <!DOCTYPE html>
-<html>
+<html ng-app="dbAnalyzer">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet"
@@ -34,32 +33,36 @@
     
     <body ng-controller="dbAnalyzerCtrl">
         	<div class="alert" id="alert" role="alert" style="display:none;">
+        
     		
     	</div>
-        <%
-            String  dbStatus = "DB NOT CONNECTED";
+    	
+    	<div id="status-bar" style="background-color: lightgrey; padding: 5px;" ng-if="username">
+    	<span style="float: left;" id="statusDatabase" class="circle">
+    	
+    	</span>
+    	<span style="margin-left: 50%;">
+    	DB TRADE
+    	</span>
+    	<div id="user-dropdown" class="dropdown">
+    	    	<span class="dropbtn" ng-bind="username">
+    	</span>
+    	<div class="dropdown-content">
 
-            globalHelper.setInfo("Set any value here for application level access");
-            boolean connectionStatus = globalHelper.bootstrapDBConnection();
-            
-            if( connectionStatus )
-            {
-                dbStatus = "Selvyn, you have successfully connected the Deutsche Bank server";
-            }
-        %>
-        <h2><%= dbStatus %></h2>
-        <%
-            if( connectionStatus )
-            {
-        %>
+    			<ul>
+    			    		<li><a href="#!banana">Operation 1</a></li>
+    			    		<li><a href="#!banana">Operation 2</a></li>
+    			</ul>
+    	</div>
+    	</div>
+
+    	</div>
+        <h2></h2>
             	<main class="container">
     		<div class="starter-template">
+    		
     			<div ng-view></div>
     		</div>
     	</main>
-        
-        <%
-           }
-        %>
     </body>
 </html>
