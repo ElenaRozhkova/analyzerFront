@@ -16,6 +16,8 @@
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
               crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="dbanalyzer/css/main.css" />
+            <link rel="stylesheet" href="dbanalyzer/css/nav.css" />
+    <link rel="stylesheet" href="dbanalyzer/css/login.css" />
         <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
         </script>
@@ -30,29 +32,50 @@
     </head>
     
     <body>
+			<nav class="navbar navbar-default>">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">Investment Services</a>
+      </div>
+    </nav>
         <%
-            String  dbStatus = "DB NOT CONNECTED";
 
             globalHelper.setInfo("Set any value here for application level access");
             boolean connectionStatus = globalHelper.bootstrapDBConnection();
-            
-            if( connectionStatus )
-            {
-                dbStatus = "Selvyn, you have successfully connected the Deutsche Bank server";
-            }
         %>
-        <h2><%= dbStatus %></h2>
         <%
             if( connectionStatus )
             {
         %>
-        <h3>User verification is required</h3>
-        <form action = "" id="loginForm">
-            <p>User ID: <input type="text" id="f_userid" name="usr"></p>
-            <p>Password: <input type="text" id="f_pwd" name="pwd"></p>
-            <button type="button" onclick="validateUserId()">Verify</button>
-            <input type = "submit" value = "Submit" />
-        </form>
+
+    <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Success!</strong> Database connection was successful.
+    </div>
+
+    <div class="container">
+      <div class="col-md-6">
+        <div class="img-padding">
+          <div class="login-img"></div>
+        </div>
+      </div>
+      <div class="col-md-6 text-center">
+        <div class="g">
+          <h3 class="head">Login</h3>
+          <p class="para">Login with your user credentials to access your Investment Services dashboard</p>
+          <form action="" class="login" id="loginForm">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" id="f_userid" name="usr" placeholder="Username">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" id="f_pwd" name="pwd" placeholder="Password">
+            </div>
+            <button type = "submit" class="btn btn-info"><a class="login-btn" href="index.html">Login</a></button>
+            <p>Don't have an Account? <a href="#">Sign up here</a> </p>
+          </form>
+        </div>
+      </div>
         <p>
             <div id="userIdMessage"></div>
         </p>
