@@ -22,8 +22,8 @@
   margin-bottom: 0;
 }
 
-.navbar a{
-  color: #fff;
+a.nav-text{
+    color: #fff;
 }
 
 
