@@ -7,6 +7,18 @@
   flex-wrap: wrap;
 }
 
+.counterparty-pie{
+    justify-content: center;
+}
+
+.invisible-card{
+    width: 100%;
+}
+
+.pie-chart-box{
+    margin: 0 15px;
+}
+
 .card{
 	margin-top: 30px;
 }
