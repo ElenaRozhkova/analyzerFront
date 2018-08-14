@@ -52,6 +52,19 @@
       <strong>Success!</strong> Database connection was successful.
     </div>
 
+    <%
+} else {
+    %>
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Error!</strong> Database connection was not successful.
+      </div>
+
+    <%
+}
+%>
+
+
     <div class="container">
       <div class="col-md-6">
         <div class="img-padding">
@@ -79,8 +92,5 @@
         <p>
             <div id="userIdMessage"></div>
         </p>
-        <%
-            }
-        %>
     </body>
 </html>

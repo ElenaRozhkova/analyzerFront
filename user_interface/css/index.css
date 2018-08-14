@@ -1,0 +1,41 @@
+.flex-container{
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card{
+	margin-top: 30px;
+}
+
+.chart-box-header{
+	border-bottom: none;
+	background-color: #fff;
+	font-size: 18px;
+  border-top: 5px 
+}
+
+.stock-price{
+    color: green;
+}
+
+.buy-sell{
+    margin: 10px 0;
+}
+
+.market-info{
+    margin-top: 20px;
+}
+
+raw-data-table {
+	margin-top: 30px;
+}
+
+tr {
+   line-height: 18px;
+   min-height: 18px;
+   height: 18px;
+}
