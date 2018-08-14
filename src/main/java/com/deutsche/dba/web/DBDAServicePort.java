@@ -127,5 +127,3 @@ public class DBDAServicePort implements IDBDAServicePort
             return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
     }
 }
-
-}
