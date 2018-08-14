@@ -96,5 +96,36 @@ public class DBDAServicePort implements IDBDAServicePort
         else
             return Response.status(400).entity(new SimpleJsonMessage("User could not be found")).build();
     }
+    
+    @Override
+    @GET
+    @Path("/get/buy/{usr}/{instr}")
+    public Response getInstrumentBuyPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")String instr ) {
+        String result = userController.verifyLoginDetails(usr, instr);
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
+    @Path("/get/sell/{usr}/{instr}")
+    public Response getInstrumentSellPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")String instr ) {
+        String result = userController.verifyLoginDetails(usr, instr);
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+}
 
 }

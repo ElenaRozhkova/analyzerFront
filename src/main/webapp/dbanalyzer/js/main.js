@@ -33,11 +33,12 @@ app.controller("analyzerCtrl", [
 
 			$scope.loginFromForm = function() {
 				var dataObj = {
-					usr : $scope.loginUsername,
-					pwd : $scope.loginPassword
+					usr : this.loginUsername,
+					pwd : this.loginPassword
 				}
 				$scope.loginUsername = null;
 				$scope.loginPassword = null;
+				console.log(dataObj)
 				var now = new Date();
 				var expDate = new Date(now.setMinutes(now.getMinutes()+30));
 				var request = $.ajax({

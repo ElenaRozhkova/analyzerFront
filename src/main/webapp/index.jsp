@@ -74,7 +74,9 @@
 							</a> <a href="#!settings" class="dropdown-item"> <span
 								class="input-group-addon"><i class="fa fa-cog"
 									aria-hidden="true"></i></span> Settings
-							</a> <a ng-click="signOut()" class="dropdown-item"> <span
+							</a> 
+							<hr>
+							<a ng-click="signOut()" class="dropdown-item"> <span
 								class="input-group-addon"><i class="fa fa-sign-out-alt"
 									aria-hidden="true"></i></span> Sign out
 							</a>
