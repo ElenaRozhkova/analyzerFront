@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a711c23e-e5b5-4291-8a0c-0bd4f13a0b8c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_interface/counterparty.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/counterparty.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_interface/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/user_interface/index.html" afterDir="false" />
     </list>
@@ -15,20 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="counterparty.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="counterparty.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user_interface/counterparty.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="106" column="34" lean-forward="true" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
+            <state relative-caret-position="167">
+              <caret line="31" column="88" selection-start-line="31" selection-start-column="88" selection-end-line="31" selection-end-column="88" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/user_interface/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="99" selection-end-column="26" />
+            <state relative-caret-position="167">
+              <caret line="31" column="92" selection-start-line="31" selection-start-column="92" selection-end-line="31" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -40,6 +41,9 @@
       <find>row</find>
       <find>raw data</find>
       <find>select instrument</find>
+      <find>instrument data</find>
+      <find>your</find>
+      <find>your port</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -126,7 +130,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -155,17 +158,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/user_interface/index.html">
+    <entry file="file://$PROJECT_DIR$/user_interface/counterparty.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="99" selection-end-column="26" />
+        <state relative-caret-position="167">
+          <caret line="31" column="88" selection-start-line="31" selection-start-column="88" selection-end-line="31" selection-end-column="88" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user_interface/counterparty.html">
+    <entry file="file://$PROJECT_DIR$/user_interface/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="106" column="34" lean-forward="true" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
+        <state relative-caret-position="167">
+          <caret line="31" column="92" selection-start-line="31" selection-start-column="92" selection-end-line="31" selection-end-column="92" />
         </state>
       </provider>
     </entry>
