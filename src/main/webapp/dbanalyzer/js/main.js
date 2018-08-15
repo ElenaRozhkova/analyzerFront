@@ -74,5 +74,41 @@ app.controller("analyzerCtrl", [
 			if (!$scope.username) {
 				window.location.href = '#!login';
 			}
+			
+			$http({
+				method : "GET",
+				url : rootURL + '/get/instruments/all',
+				data : null,
+				dataType : "json",
+				headers : {
+					'Content-Type' : 'application/x-www-form-urlencoded'
+				}
+			}).then(function successfunction(response) {
+					$scope.instrumentData = response.data;
+			}, function failfunction(response) {
+					console.log(response);	
+			});
+			
+		    $scope.$watch(function() {
+		    	return $scope.selectedInstrument;
+		    }, function() {
+		    	if($scope.selectedInstrument) {
+		    		console.log(rootURL + '/get/buy/usr/'+$scope.selectedInstrument);
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/buy/usr/'+$scope.selectedInstrument,
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+							console.log(response)
+					}, function failfunction(response) {
+							console.log(response);	
+					});
+		    	}
+
+		    }, true);
 
 		} ]);

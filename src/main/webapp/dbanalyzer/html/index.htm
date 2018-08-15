@@ -19,12 +19,8 @@
 						</div>
 					</div>
 					<div class="card-footer">
-						<select ng-model="selectedInstrument" class="form-control">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
+						<select ng-model="$parent.selectedInstrument" class="form-control">
+							<option ng-repeat="option in instrumentData" value="{{option.instrumentID}}">{{option.instrumentName}}</option>
 						</select>
 					</div>
 				</div>
