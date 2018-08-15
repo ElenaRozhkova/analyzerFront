@@ -9,8 +9,12 @@ package com.deutsche.dba.web;
 import com.deutsche.dba.utils.SimpleJsonMessage;
 import deutschebank.core.ApplicationScopeHelper;
 import deutschebank.core.UserController;
+import deutschebank.core.InstrumentController;
 import deutschebank.dbutils.User;
 import deutschebank.dbutils.UserHandler;
+import deutschebank.dbutils.Instrument;
+import deutschebank.dbutils.InstrumentHandler;
+import deutschebank.dbutils.SQLQueries;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -29,6 +33,8 @@ import javax.ws.rs.core.Response;
 public class DBDAServicePort implements IDBDAServicePort
 {
     final   UserController userController = new UserController();
+    final   InstrumentController instrumentController = new InstrumentController();
+    final   SQLQueries sqlQueries = new SQLQueries();
 
     @Override
     @GET
@@ -96,5 +102,48 @@ public class DBDAServicePort implements IDBDAServicePort
         else
             return Response.status(400).entity(new SimpleJsonMessage("User could not be found")).build();
     }
-
+    
+    @Override
+    @GET
+    @Path("/get/buy/{usr}/{instr}")
+    public Response getInstrumentBuyPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr ) {
+        String result = SQLQueries.toJSON(SQLQueries.instrumentBuyPriceVsTime(instr));
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
+    @Path("/get/sell/{usr}/{instr}")
+    public Response getInstrumentSellPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")String instr ) {
+        String result = userController.verifyLoginDetails(usr, instr);
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
+    @Path("/get/instruments/all")
+    public Response getAllInstruments( ) {
+        String result = instrumentController.getAllInstruments();
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
 }

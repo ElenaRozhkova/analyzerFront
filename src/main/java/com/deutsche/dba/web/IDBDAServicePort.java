@@ -55,4 +55,21 @@ public interface IDBDAServicePort
     @Produces(MediaType.APPLICATION_JSON)
     public Response loginWithInfoFromForm(  @FormParam("usr")String usr,
                                             @FormParam("pwd")String pwd );
+    
+    @GET
+    @Path("/get/buy/{usr}/{instr}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInstrumentBuyPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr );
+    
+    @GET
+    @Path("/get/sell/{usr}/{instr}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInstrumentSellPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")String instr );
+    
+    @GET
+    @Path("/get/instruments/all")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAllInstruments();
 }

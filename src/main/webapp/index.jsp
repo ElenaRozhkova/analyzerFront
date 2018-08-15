@@ -12,7 +12,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="dbanalyzer/css/main.css" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -21,6 +20,9 @@
 	href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
 	integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
 	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="dbanalyzer/css/main.css" />
+<link rel="stylesheet" href="dbanalyzer/css/nav.css" />
+<link rel="stylesheet" href="dbanalyzer/css/index.css" />
 <link rel="stylesheet" href="dbanalyzer/css/login.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
@@ -54,8 +56,7 @@
 <body ng-app="analyzerApp" ng-controller="analyzerCtrl">
 	<nav class="navbar navbar-expand-md">
 		<div class="container">
-			<a href="#!index"
-				class="navbar-brand nav-text d-flex w-50 mr-auto">Investment
+			<a href="#!index" class="navbar-brand nav-text d-flex w-50 mr-auto">Investment
 				Services</a>
 			<div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
 				<ul class="nav navbar-nav ml-auto w-100 justify-content-end">
@@ -74,7 +75,9 @@
 							</a> <a href="#!settings" class="dropdown-item"> <span
 								class="input-group-addon"><i class="fa fa-cog"
 									aria-hidden="true"></i></span> Settings
-							</a> <a ng-click="signOut()" class="dropdown-item"> <span
+							</a>
+							<hr>
+							<a ng-click="signOut()" class="dropdown-item"> <span
 								class="input-group-addon"><i class="fa fa-sign-out-alt"
 									aria-hidden="true"></i></span> Sign out
 							</a>
