@@ -1,3 +1,7 @@
+body {
+    color: #003c7d;
+}
+
 .container{
     max-width: 100%;
 }
@@ -56,4 +60,28 @@ tr {
 .counterparty-drop{
     margin: 0 auto;
     margin-bottom: 30px;
+}
+
+.btn-custom{
+    background-color: #003c7d;
+    border-color: #003c7d;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #002854;
+    border-color: #002854;
+}
+
+.btn-custom:focus {
+    box-shadow: 0 0 0 0.2rem rgba(32,65,101,.5);
+}
+
+a.card-link:hover{
+    text-decoration:underline;
+    color: #003c7d;
+}
+
+h2.card-title{
+    font-weight: 300;
 }

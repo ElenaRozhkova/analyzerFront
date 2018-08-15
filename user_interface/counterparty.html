@@ -17,7 +17,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm">
-            <a href="index.html" class="navbar-brand nav-text d-flex w-50 mr-auto">Investment Services</a>
+            <a href="index.html" class="navbar-brand nav-text d-flex w-50 mr-auto">Deutsche Bank Investment Services</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,45 +37,15 @@
             </div>
         </nav>
     <div class="container">
-        <!--
-            <div class="flex-container">
-                <div class="card text-white bg-primary mb-3" style="max-width: 26rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="card text-white bg-success mb-3" style="max-width: 12rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Success card title</h5>
-                    </div>
-                </div>
-                <div class="card text-white bg-danger mb-3" style="max-width: 12rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Danger card title</h5>
-                    </div>
-                </div>
-
-                <div class="card text-white bg-warning mb-3" style="max-width: 12rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Warning card title</h5>
-                    </div>
-                </div>
-            </div>
-            -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Deals</a>
+                    <a class="nav-link db-color" href="index.html">Deals</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="counterparty.html">Counterparty</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="portfolio.html">Your Portfolio</a>
+                    <a class="nav-link db-color" href="portfolio.html">Your Portfolio</a>
                 </li>
             </ul>
             <div class="row counterparty-info">
@@ -84,7 +54,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="card pie-chart-box">
-                                    <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-chart-pie" aria-hidden="true"></i></span>  Instrument Buys</div>
+                                    <div class="card-header chart-box-header db-color"><span class="input-group-addon"><i class="fa fa-chart-pie" aria-hidden="true"></i></span>  Instrument Buys of Counterparty</div>
                                     <div class="card-body pie-body">
                                         <div class="pie"></div>
                                     </div>
@@ -92,7 +62,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="card pie-chart-box">
-                                    <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-chart-pie" aria-hidden="true"></i></span>  Instrument Sells</div>
+                                    <div class="card-header chart-box-header db-color"><span class="input-group-addon"><i class="fa fa-chart-pie" aria-hidden="true"></i></span>  Instrument Sells of Counterparty</div>
                                     <div class="card-body pie-body">
                                         <div class="pie"></div>
                                     </div>
@@ -100,8 +70,9 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <select class="form-control">
-                                <option selected disabled >Select Counterparty</option>
+                            <label for="counterparty-dropdown">Select a Counterparty:</label>
+                            <select class="form-control" id="counterparty-dropdown">
+                                <option selected>Selvyn</option>
                                 <option>2</option>
                                 <option>3</option>
                                 <option>4</option>
@@ -112,9 +83,9 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="card stock-info-box">
-                        <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Insight</div>
+                        <div class="card-header chart-box-header db-color"><span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>&nbsp;&nbsp;Counterparty Insight</div>
                         <div class="card-body">
-                            <h4 class="card-title">Selvyn</h4>
+                            <h2 class="card-title">Selvyn</h2>
                             <table class="table table-hover">
                                 <tbody>
                                 <tr>
@@ -131,7 +102,7 @@
                                 </tr>
                                 <tr>
                                     <td><b>Effective Profit</b></td>
-                                    <td>2</td>
+                                    <td>$4,787.00</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -141,7 +112,7 @@
             </div>
         <section class="data-table-section">
             <div class="card">
-                <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-database" aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data</div>
+                <div class="card-header chart-box-header db-color"><span class="input-group-addon"><i class="fa fa-database" aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data</div>
                 <div class="card-body">
                     <table class="table raw-data-table table-sm">
                         <thead>

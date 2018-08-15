@@ -18,7 +18,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm">
-            <a href="index.html" class="navbar-brand nav-text d-flex w-50 mr-auto">Investment Services</a>
+            <a href="index.html" class="navbar-brand nav-text d-flex w-50 mr-auto">Deutsche Bank Investment Services</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,38 +41,46 @@
             <section>
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Deals</a>
+                        <a class="nav-link active" href="index.html">Instrument</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="counterparty.html">Counterparty</a>
+                        <a class="nav-link db-color" href="counterparty.html">Counterparty</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="portfolio.html">Your Portfolio</a>
+                        <a class="nav-link db-color" href="portfolio.html">Your Portfolio</a>
                     </li>
                 </ul>
 
                 <div class="row" style="margin-top: 30px;">
                     <div class="col-sm-8">
                         <div class="card stock-chart">
-                            <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-chart-line" aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Price Overview
+                            <div class="card-header chart-box-header db-color"><span class="input-group-addon"><i class="fa fa-chart-line" aria-hidden="true"></i></span>&nbsp;&nbsp;Instrument Overview
                             </div>
                             <div class="card-body">
                                 <div class="stock-line"></div>
                             </div>
                             <div class="card-footer">
-                                <select class="form-control">
-                                    <option selected disabled >Select Instrument</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <label for="instrument-dropdown">Select an Instrument:</label>
+                                <select class="form-control" id="instrument-dropdown">
+                                    <option selected>Astronomica</option>
+                                    <option>Deuternoic</option>
+                                    <option>Floral</option>
+                                    <option>Galactia</option>
+                                    <option>Celestial</option>
+                                    <option>Heliosphere</option>
+                                    <option>Jupiter</option>
+                                    <option>Interstella</option>
+                                    <option>Koronis</option>
+                                    <option>Eclipse</option>
+                                    <option>Borealis</option>
+                                    <option>Lunatic</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="card stock-info-box">
-                            <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Insight</div>
+                            <div class="card-header chart-box-header db-color"><span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>&nbsp;&nbsp;Instrument Insight</div>
                             <div class="card-body">
                                 <h4 class="card-title stock-price">10.11 EUR +0.012 (0.12%)&nbsp;<span class="input-group-addon"><i class="fa fa-arrow-up" aria-hidden="true"></i></span></h4>
                                 <h6 class="card-subtitle mb-2 text-muted">14 Aug, 13:45 CEST · Disclaimer</h6>
@@ -103,18 +111,18 @@
 
                                 <div class="row text-center buy-sell">
                                     <div class="col">
-                                        <button type="button" class="btn btn-primary">Buy</button>
+                                        <button type="button" class="btn btn-custom">Buy</button>
                                     </div>
                                     <div class="col">
-                                        <button type="button" class="btn btn-secondary">Trading Price</button>
+                                        <button type="button" class="btn btn-custom">Trading Price</button>
                                     </div>
                                     <div class="col">
-                                        <button type="button" class="btn btn-dark">Sell</button>
+                                        <button type="button" class="btn btn-custom">Sell</button>
                                     </div>
                                 </div>
                                 <div class="row text-center market-info">
                                     <div class="col">
-                                        <a href="#" class="card-link">Market Information</a>
+                                        <a href="#" class="card-link db-color">Market Information</a>
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +132,7 @@
             </section>
             <section class="data-table-section">
                 <div class="card">
-                    <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-database" aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data</div>
+                    <div class="card-header chart-box-header db-color"><span class="input-group-addon"><i class="fa fa-database" aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data</div>
                     <div class="card-body">
                     <table class="table raw-data-table table-sm">
                         <thead>

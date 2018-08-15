@@ -13,3 +13,12 @@ a.nav-text{
 .nav-tabs {
     margin-top: 10px;
 }
+
+a.nav-link.db-color {
+    color: #003c7d;
+}
+
+.db-color{
+    color: #003c7d;
+}
+
