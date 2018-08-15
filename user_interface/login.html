@@ -1,69 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/login.css">
-  <script src="js/login.js"></script>
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/nav.css">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="footer" href="footer.css">
+        <script src="js/login.js"></script>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md">
+              <a href="login.html" class="navbar-brand nav-text d-flex w-50 mr-auto">Deutsche Bank Investment Services</a>
+        </nav>
 
-  <nav class="navbar navbar-expand-md">
-    <div class="container">
-      <a href="login.html" class="navbar-brand nav-text d-flex w-50 mr-auto">Investment Services</a>
-    </div>
-  </nav>
-
-<div class="alert alert-success" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Success!</strong> Database connection was successful.
-</div>
-
-<div class="container">
-  <div class="col-md-6">
-    <div class="img-padding">
-      <div class="login-img"></div>
-    </div>
-  </div>
-  <div class="col-md-6 text-center">
-    <div class="g">
-      <h3 class="head">Login</h3>
-      <p class="para">Login with your user credentials to access your Investment Services dashboard</p>
-      <form action="#" class="login">
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-          <input type="text" class="form-control" placeholder="Username">
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Success!</strong> Database connection was successful.
         </div>
-        <div class="input-group h">
-          <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-          <input type="text" class="form-control" placeholder="Email">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
-          <input type="text" class="form-control" placeholder="Password">
-        </div>
-        <button class="btn btn-info"><a class="login-btn" href="index.html">Login</a></button>
-        <p>Don't have an Account? <a href="#">Sign up here</a> </p>
-      </form>
-    </div>
-  </div>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</body>
+        <div class="container">
+            <div class="col-md-6">
+                <div class="img-padding">
+                    <div class="login-img"></div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div class="g">
+                    <h3 class="head">Login</h3>
+                    <p class="para">Login with your user credentials to access your Investment Services dashboard</p>
+                    <form action="#" class="login">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" placeholder="Username">
+                        </div>
+                        <div class="input-group h">
+                            <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" placeholder="Password">
+                        </div>
+                        <button class="btn btn-info"><a class="login-btn" href="index.html">Login</a></button>
+                        <p>Don't have an Account? <a href="#">Sign up here</a> </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
 </html>
