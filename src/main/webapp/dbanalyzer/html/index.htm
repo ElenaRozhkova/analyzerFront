@@ -1,129 +1,214 @@
 <div id="index">
-	<section>
-		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active"
-				href="index.html">Deals</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="counterparty.html">Counterparty</a></li>
-		</ul>
-		<div class="flex-container">
-			<div class="card stock-chart">
-				<div class="card-header chart-box-header">
-					<span class="input-group-addon"><i class="fa fa-chart-line"
-						aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Price Overview
-				</div>
-				<div class="card-body">
-					<div class="stock-line">
-						<svg id="svgIndex" width="700" height="320"></svg>
+	<div ng-show="indexTab!=='counterparty'">
+		<section>
+			<ul class="nav nav-tabs">
+				<li class="nav-item" ng-click="switchTab('deals')"><a
+					class="nav-link active">Deals</a></li>
+				<li class="nav-item" ng-click="switchTab('counterparty')"><a
+					class="nav-link">Counterparty</a></li>
+			</ul>
+			<div class="flex-container">
+				<div class="card stock-chart">
+					<div class="card-header chart-box-header">
+						<span class="input-group-addon"><i class="fa fa-chart-line"
+							aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Price Overview
+					</div>
+					<div class="card-body">
+						<div class="stock-line">
+							<svg id="svgDeals" width="700" height="320"></svg>
+						</div>
+					</div>
+					<div class="card-footer">
+						<select ng-model="selectedInstrument" class="form-control">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
 					</div>
 				</div>
-				<div class="card-footer">
-					<select ng-model="selectedInstrument" class="form-control">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
+				<div class="card stock-info-box" style="max-width: 22rem;">
+					<div class="card-header chart-box-header">
+						<span class="input-group-addon"><i class="fa fa-list"
+							aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Insight
+					</div>
+					<div class="card-body">
+						<h4 class="card-title stock-price">
+							10.11 EUR +0.012 (0.12%)&nbsp;<span class="input-group-addon"><i
+								class="fa fa-arrow-up" aria-hidden="true"></i></span>
+						</h4>
+						<h6 class="card-subtitle mb-2 text-muted">14 Aug, 13:45 CEST
+							· Disclaimer</h6>
+						<table class="table table-hover">
+							<tbody>
+								<tr>
+									<td><b>Volume Bought</b></td>
+									<td>11129751</td>
+								</tr>
+								<tr>
+									<td><b>Avg Price Bought</b></td>
+									<td>$5.00</td>
+								</tr>
+								<tr>
+									<td><b>Volume Sold</b></td>
+									<td>11129751</td>
+								</tr>
+								<tr>
+									<td><b>Avg Price Sold</b></td>
+									<td>$4.77</td>
+								</tr>
+								<tr>
+									<td><b>Most Traded By</b></td>
+									<td>Irene</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="row text-center buy-sell">
+							<div class="col-sm-3">
+								<button type="button" class="btn btn-primary">Buy</button>
+							</div>
+							<div class="col-sm-6">
+								<button type="button" class="btn btn-secondary">Trading
+									Price</button>
+							</div>
+							<div class="col-sm-3">
+								<button type="button" class="btn btn-dark">Sell</button>
+							</div>
+						</div>
+						<div class="row text-center market-info">
+							<div class="col">
+								<a href="#" class="card-link">Market Information</a>
+							</div>
+						</div>
+
+					</div>
 				</div>
 			</div>
-			<div class="card stock-info-box" style="max-width: 22rem;">
+		</section>
+		<section class="data-table-section">
+			<div class="card">
 				<div class="card-header chart-box-header">
-					<span class="input-group-addon"><i class="fa fa-list"
-						aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Insight
+					<span class="input-group-addon"><i class="fa fa-database"
+						aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data
 				</div>
 				<div class="card-body">
-					<h4 class="card-title stock-price">
-						10.11 EUR +0.012 (0.12%)&nbsp;<span class="input-group-addon"><i
-							class="fa fa-arrow-up" aria-hidden="true"></i></span>
-					</h4>
-					<h6 class="card-subtitle mb-2 text-muted">14 Aug, 13:45 CEST ·
-						Disclaimer</h6>
-					<table class="table table-hover">
+					<table class="table raw-data-table table-sm">
+						<thead>
+							<tr>
+								<th>Row</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Email</th>
+							</tr>
+						</thead>
 						<tbody>
 							<tr>
-								<td><b>Volume Bought</b></td>
-								<td>11129751</td>
+								<td>1</td>
+								<td>John</td>
+								<td>Carter</td>
+								<td>johncarter@mail.com</td>
 							</tr>
 							<tr>
-								<td><b>Avg Price Bought</b></td>
-								<td>$5.00</td>
+								<td>2</td>
+								<td>Peter</td>
+								<td>Parker</td>
+								<td>peterparker@mail.com</td>
 							</tr>
 							<tr>
-								<td><b>Volume Sold</b></td>
-								<td>11129751</td>
-							</tr>
-							<tr>
-								<td><b>Avg Price Sold</b></td>
-								<td>$4.77</td>
-							</tr>
-							<tr>
-								<td><b>Most Taded By</b></td>
-								<td>Irene</td>
+								<td>3</td>
+								<td>John</td>
+								<td>Rambo</td>
+								<td>johnrambo@mail.com</td>
 							</tr>
 						</tbody>
 					</table>
-
-					<div class="row text-center buy-sell">
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-primary">Buy</button>
-						</div>
-						<div class="col-sm-6">
-							<button type="button" class="btn btn-secondary">Trading
-								Price</button>
-						</div>
-						<div class="col-sm-3">
-							<button type="button" class="btn btn-dark">Sell</button>
-						</div>
-					</div>
-					<div class="row text-center market-info">
-						<div class="col">
-							<a href="#" class="card-link">Market Information</a>
-						</div>
-					</div>
-
 				</div>
 			</div>
-		</div>
-	</section>
-	<section class="data-table-section">
-		<div class="card">
-			<div class="card-header chart-box-header">
-				<span class="input-group-addon"><i class="fa fa-database"
-					aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data
+		</section>
+	</div>
+
+
+	<div ng-show="indexTab === 'counterparty'">
+		<section>
+			<ul class="nav nav-tabs">
+				<li ng-click="switchTab('deals')" class="nav-item"><a
+					class="nav-link">Deals</a></li>
+				<li ng-click="switchTab('counterparty')" class="nav-item"><a
+					class="nav-link active">Counterparty</a></li>
+			</ul>
+
+
+			<div class="flex-container counterparty-pie">
+				<div class="card pie-chart-box">
+					<div class="card-header chart-box-header">
+						<span class="input-group-addon"><i class="fa fa-chart-pie"
+							aria-hidden="true"></i></span> Instrument Buys
+					</div>
+					<div class="card-body">
+						<div class="pie">
+						<svg id="svgCounterpartyBuys" width="270" height="270">
+						</svg>
+						</div>
+					</div>
+				</div>
+				<div class="card pie-chart-box">
+					<div class="card-header chart-box-header">
+						<span class="input-group-addon"><i class="fa fa-chart-pie"
+							aria-hidden="true"></i></span> Instrument Sells
+					</div>
+					<div class="card-body">
+						<div class="pie">
+						<svg id="svgCounterpartySells" width="270" height="270">
+						</svg>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="card-body">
-				<table class="table raw-data-table table-sm">
-					<thead>
-						<tr>
-							<th>Row</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Email</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>John</td>
-							<td>Carter</td>
-							<td>johncarter@mail.com</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Peter</td>
-							<td>Parker</td>
-							<td>peterparker@mail.com</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>John</td>
-							<td>Rambo</td>
-							<td>johnrambo@mail.com</td>
-						</tr>
-					</tbody>
-				</table>
+
+
+
+		</section>
+		<section class="data-table-section">
+			<div class="card">
+				<div class="card-header chart-box-header">
+					<span class="input-group-addon"><i class="fa fa-database"
+						aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data
+				</div>
+				<div class="card-body">
+					<table class="table raw-data-table table-sm">
+						<thead>
+							<tr>
+								<th>Row</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Email</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>John</td>
+								<td>Carter</td>
+								<td>johncarter@mail.com</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Peter</td>
+								<td>Parker</td>
+								<td>peterparker@mail.com</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>John</td>
+								<td>Rambo</td>
+								<td>johnrambo@mail.com</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</div>
 </div>

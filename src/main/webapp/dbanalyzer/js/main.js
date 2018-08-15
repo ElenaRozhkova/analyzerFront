@@ -57,6 +57,11 @@ app.controller("analyzerCtrl", [
 				});
 
 			}
+			
+			$scope.switchTab = function(tabName) {
+				console.log(tabName);
+				$scope.indexTab = tabName;
+			}
 
 			$scope.signOut = function() {
 				$scope.username = null;
