@@ -208,9 +208,8 @@ data.forEach(function(el, idx, arr) {
 }
 
 function visStockChart(data) {
-
-	var svg_width = 700;
-	var svg_height = 320;
+	var svg_width = 1080;
+	var svg_height = 500;
 	var svg = d3.select(".stock-line").append("svg").attr("width", svg_width).attr("height", svg_height);
     margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = +svg.attr("width") - margin.left - margin.right,

@@ -58,8 +58,8 @@ $(document).ready(function() {
 });
 
 function visPieChart(data) {
-	var svg_width = 270;
-	var svg_height = 270;
+	var svg_width = 350;
+	var svg_height = 350;
 	var svg = d3.selectAll(".pie").append("svg").attr("width", svg_width).attr("height", svg_height);
     margin = {top: 0, right: 0, bottom: 0, left: 0},
     width = +svg.attr("width") - margin.left - margin.right,

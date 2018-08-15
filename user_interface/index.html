@@ -9,15 +9,15 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/footer.css">
         <link rel="stylesheet" href="css/nav.css">
         <link rel="stylesheet" href="css/index.css">
+
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="js/index.js"></script>
     </head>
     <body>
-
-    <nav class="navbar navbar-expand-sm">
-        <div class="container">
+        <nav class="navbar navbar-expand-sm">
             <a href="index.html" class="navbar-brand nav-text d-flex w-50 mr-auto">Investment Services</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
                 <span class="navbar-toggler-icon"></span>
@@ -30,164 +30,141 @@
                             Username@db.co.uk
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#"> <span class="input-group-addon"><i class="fa fa-chart-line" aria-hidden="true"></i></span> Your portfolio</a>
                             <a class="dropdown-item" href="#"> <span class="input-group-addon"><i class="fa fa-cog" aria-hidden="true"></i></span> Settings</a>
-
-                            <hr>
-
                             <a class="dropdown-item" href="login.html"> <span class="input-group-addon"><i class="fa fa-sign-out-alt" aria-hidden="true"></i></span> Sign out</a>
                         </div>
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
-    <div class="container">
-    <!--
-        <div class="flex-container">
-            <div class="card text-white bg-primary mb-3" style="max-width: 26rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card text-white bg-success mb-3" style="max-width: 12rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Success card title</h5>
-                </div>
-            </div>
-            <div class="card text-white bg-danger mb-3" style="max-width: 12rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Danger card title</h5>
-                </div>
-            </div>
+        </nav>
+        <div class="container">
+            <section>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="counterparty.html">Counterparty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Your Portfolio</a>
+                    </li>
+                </ul>
 
-            <div class="card text-white bg-warning mb-3" style="max-width: 12rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Warning card title</h5>
-                </div>
-            </div>
-        </div>
-        -->
-        <section>
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="index.html">Deals</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="counterparty.html">Counterparty</a>
-            </li>
-        </ul>
-        <div class="flex-container">
-            <div class="card stock-chart">
-                <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-chart-line" aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Price Overview
-                </div>
-                <div class="card-body">
-                    <div class="stock-line"></div>
-                </div>
-                <div class="card-footer">
-                        <select class="form-control">
-                            <option selected disabled >Select Instrument</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-sm-8">
+                        <div class="card stock-chart">
+                            <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-chart-line" aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Price Overview
+                            </div>
+                            <div class="card-body">
+                                <div class="stock-line"></div>
+                            </div>
+                            <div class="card-footer">
+                                <select class="form-control">
+                                    <option selected disabled >Select Instrument</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-            </div>
-            <div class="card stock-info-box" style="max-width: 22rem;">
-                <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Insight</div>
-                <div class="card-body">
-                    <h4 class="card-title stock-price">10.11 EUR +0.012 (0.12%)&nbsp;<span class="input-group-addon"><i class="fa fa-arrow-up" aria-hidden="true"></i></span></h4>
-                    <h6 class="card-subtitle mb-2 text-muted">14 Aug, 13:45 CEST · Disclaimer</h6>
-                    <table class="table table-hover">
+                    <div class="col-sm-4">
+                        <div class="card stock-info-box">
+                            <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-list" aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Insight</div>
+                            <div class="card-body">
+                                <h4 class="card-title stock-price">10.11 EUR +0.012 (0.12%)&nbsp;<span class="input-group-addon"><i class="fa fa-arrow-up" aria-hidden="true"></i></span></h4>
+                                <h6 class="card-subtitle mb-2 text-muted">14 Aug, 13:45 CEST · Disclaimer</h6>
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <td><b>Volume Bought</b></td>
+                                            <td>11129751</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Avg Price Bought</b></td>
+                                            <td>$5.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Volume Sold</b></td>
+                                            <td>11129751</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Avg Price Sold</b></td>
+                                            <td>$4.77</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Most Taded By</b></td>
+                                            <td>Irene</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="row text-center buy-sell">
+                                    <div class="col">
+                                        <button type="button" class="btn btn-primary">Buy</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-secondary">Trading Price</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-dark">Sell</button>
+                                    </div>
+                                </div>
+                                <div class="row text-center market-info">
+                                    <div class="col">
+                                        <a href="#" class="card-link">Market Information</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="data-table-section">
+                <div class="card">
+                    <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-database" aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data</div>
+                    <div class="card-body">
+                    <table class="table raw-data-table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Row</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <tr>
-                                <td><b>Volume Bought</b></td>
-                                <td>11129751</td>
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Carter</td>
+                                <td>johncarter@mail.com</td>
                             </tr>
                             <tr>
-                                <td><b>Avg Price Bought</b></td>
-                                <td>$5.00</td>
+                                <td>2</td>
+                                <td>Peter</td>
+                                <td>Parker</td>
+                                <td>peterparker@mail.com</td>
                             </tr>
                             <tr>
-                                <td><b>Volume Sold</b></td>
-                                <td>11129751</td>
-                            </tr>
-                            <tr>
-                                <td><b>Avg Price Sold</b></td>
-                                <td>$4.77</td>
-                            </tr>
-                            <tr>
-                                <td><b>Most Taded By</b></td>
-                                <td>Irene</td>
+                                <td>3</td>
+                                <td>John</td>
+                                <td>Rambo</td>
+                                <td>johnrambo@mail.com</td>
                             </tr>
                         </tbody>
                     </table>
-
-                    <div class="row text-center buy-sell">
-                        <div class="col">
-                            <button type="button" class="btn btn-primary">Buy</button>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary">Trading Price</button>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-dark">Sell</button>
-                        </div>
                     </div>
-                    <div class="row text-center market-info">
-                        <div class="col">
-                            <a href="#" class="card-link">Market Information</a>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
+            </section>
         </div>
-        </section>
-        <section class="data-table-section">
-            <div class="card">
-                <div class="card-header chart-box-header"><span class="input-group-addon"><i class="fa fa-database" aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data</div>
-                <div class="card-body">
-                <table class="table raw-data-table table-sm">
-                    <thead>
-                        <tr>
-                            <th>Row</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>John</td>
-                            <td>Carter</td>
-                            <td>johncarter@mail.com</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Peter</td>
-                            <td>Parker</td>
-                            <td>peterparker@mail.com</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>John</td>
-                            <td>Rambo</td>
-                            <td>johnrambo@mail.com</td>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">&copy; 2018 Deutsche Bank</span>
             </div>
-        </section>
-    </div>
+        </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

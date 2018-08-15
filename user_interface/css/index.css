@@ -1,3 +1,7 @@
+.container{
+    max-width: 100%;
+}
+
 .flex-container{
   display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
   display: -ms-flexbox;  /* TWEENER - IE 10 */
@@ -7,27 +11,15 @@
   flex-wrap: wrap;
 }
 
-.counterparty-pie{
-    justify-content: center;
-}
-
-.invisible-card{
-    width: 100%;
-}
-
-.pie-chart-box{
-    margin: 0 15px;
-}
-
-.card{
-	margin-top: 30px;
+.pie-body{
+    margin-left: 50px;
 }
 
 .chart-box-header{
 	border-bottom: none;
 	background-color: #fff;
 	font-size: 18px;
-  border-top: 5px 
+    border-top: 5px
 }
 
 .stock-price{
@@ -50,4 +42,18 @@ tr {
    line-height: 18px;
    min-height: 18px;
    height: 18px;
+}
+
+.row.counterparty-info{
+    margin-top: 30px;
+}
+
+
+.card.pie-chart-box{
+    border: none;
+}
+
+.counterparty-drop{
+    margin: 0 auto;
+    margin-bottom: 30px;
 }
