@@ -93,6 +93,12 @@ public interface IDBDAServicePort
     		@PathParam("instr")int instr );
     
     @GET
+    @Path("/get/mtb/{usr}/{instr}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInstrumentMtb(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr );
+    
+    @GET
     @Path("/get/instruments/all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllInstruments();

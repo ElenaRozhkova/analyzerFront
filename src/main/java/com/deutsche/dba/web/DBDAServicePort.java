@@ -195,6 +195,21 @@ public class DBDAServicePort implements IDBDAServicePort
     
     @Override
     @GET
+    @Path("/get/mtb/{usr}/{instr}")
+    public Response getInstrumentMtb(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr ) {
+    	 String result = SQLQueries.mostTradedBy(instr);
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
     @Path("/get/instruments/all")
     public Response getAllInstruments( ) {
         String result = instrumentController.getAllInstruments();

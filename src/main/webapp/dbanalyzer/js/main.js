@@ -188,6 +188,20 @@ app.controller("analyzerCtrl", [
 					}, function failfunction(response) {
 						console.log("fail");		
 					});
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/mtb/usr/'+$scope.selectedInstrument,
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+						console.log(response);
+							$scope.mtb = response.data;
+					}, function failfunction(response) {
+						console.log("fail");		
+					});
 		    	}
 
 		    }, true);

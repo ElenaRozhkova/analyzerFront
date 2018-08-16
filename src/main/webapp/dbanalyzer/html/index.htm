@@ -44,19 +44,19 @@
 								</tr>
 								<tr>
 									<td><b>Avg Price Bought</b></td>
-									<td ng-bind="$parent.buyVol"></td>
-								</tr>
-								<tr>
-									<td><b>Volume Sold</b></td>
-									<td ng-bind="$parent.avgSellPrice"></td>
-								</tr>
-								<tr>
-									<td><b>Avg Price Sold</b></td>
 									<td ng-bind="$parent.avgBuyPrice"></td>
 								</tr>
 								<tr>
+									<td><b>Volume Sold</b></td>
+									<td ng-bind="$parent.sellVol"></td>
+								</tr>
+								<tr>
+									<td><b>Avg Price Sold</b></td>
+									<td ng-bind="$parent.avgSellPrice"></td>
+								</tr>
+								<tr>
 									<td><b>Most Traded By</b></td>
-									<td>Irene</td>
+									<td ng-bind="$parent.mtb"></td>
 								</tr>
 							</tbody>
 						</table>
