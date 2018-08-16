@@ -2,18 +2,10 @@
  * 
  */
 
-$(document).ready(function() {
-
-    //visStockChart(data);
-	//visBarChart(data);
-	//visDonutChart(data);
-	//visPieChart(data);
-});
-
-function visPieChart(data) {
-	var svg_width = 960;
-	var svg_height = 500;
-	var svg = d3.select("body").append("svg").attr("width", svg_width).attr("height", svg_height);
+function visPieChart(data, el) {
+	var svg_width = 350;
+	var svg_height = 350;
+	var svg = d3.select("#"+el).attr("width", svg_width).attr("height", svg_height);
     margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
@@ -159,11 +151,11 @@ data.forEach(function(el, idx, arr) {
 	
 }
 
-function visStockChart(data) {
+function visStockChart(data, el) {
 	
-	var svg_width = 960;
+	var svg_width = 860;
 	var svg_height = 500;
-	var svg = d3.select("body").append("svg").attr("width", svg_width).attr("height", svg_height);
+	var svg = d3.select("#"+el).attr("width", svg_width).attr("height", svg_height);
     margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
