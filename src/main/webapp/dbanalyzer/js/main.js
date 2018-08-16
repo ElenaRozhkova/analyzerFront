@@ -25,6 +25,17 @@ app.controller("analyzerCtrl", [
 		"$httpParamSerializerJQLike",
 		function($scope, $http, $cookies, $httpParamSerializerJQLike) {
 			var rootURL = "rws/services";
+			
+			var date = new Date();
+			
+			var months = [
+				"Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dez"
+			]
+			
+			$scope.day = date.getDate();
+			$scope.month = months[date.getMonth()];
+			$scope.hours = date.getHours();
+			$scope.minutes = date.getMinutes();
 
 			$scope.loginFromForm = function() {
 				var dataObj = {
@@ -221,6 +232,36 @@ app.controller("analyzerCtrl", [
 					}).then(function successfunction(response) {
 						console.log(response);
 							$scope.mtb = response.data;
+					}, function failfunction(response) {
+						console.log(response);		
+					});
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/counterparty/usr/'+$scope.selectedInstrument,
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+				    	console.log("cbi");
+						console.log(response);
+							$scope.counterpartyByInstrument = response.data;
+					}, function failfunction(response) {
+						console.log(response);		
+					});
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/priceinfo/usr/'+$scope.selectedInstrument,
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+				    	console.log("priceinfo");
+						console.log(response);
+							$scope.priceinfo = response.data;
 					}, function failfunction(response) {
 						console.log(response);		
 					});
