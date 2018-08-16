@@ -98,6 +98,20 @@ app.controller("analyzerCtrl", [
 					console.log("fail");	
 			});
 			
+			$http({
+				method : "GET",
+				url : rootURL + '/get/data/raw',
+				data : null,
+				dataType : "json",
+				headers : {
+					'Content-Type' : 'application/x-www-form-urlencoded'
+				}
+			}).then(function successfunction(response) {
+				console.log(response);
+			}, function failfunction(response) {
+				console.log("fail");	
+			});
+			
 		    $scope.$watch(function() {
 		    	return $scope.selectedInstrument;
 		    }, function() {
@@ -200,7 +214,7 @@ app.controller("analyzerCtrl", [
 						console.log(response);
 							$scope.mtb = response.data;
 					}, function failfunction(response) {
-						console.log("fail");		
+						console.log(response);		
 					});
 		    	}
 

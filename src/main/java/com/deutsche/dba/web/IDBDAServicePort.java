@@ -102,4 +102,10 @@ public interface IDBDAServicePort
     @Path("/get/instruments/all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllInstruments();
+    
+    @GET
+    @Path("/get/data/raw")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRawData();
+
 }
