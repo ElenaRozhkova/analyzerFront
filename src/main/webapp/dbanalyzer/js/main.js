@@ -25,6 +25,14 @@ app.controller("analyzerCtrl", [
 		"$httpParamSerializerJQLike",
 		function($scope, $http, $cookies, $httpParamSerializerJQLike) {
 			var rootURL = "rws/services";
+			
+			$scope.rawData = 
+					[{
+						id : 1,
+						firstName : "David",
+						lastName : "Weiss",
+						emailAdress : "mail@dweiss.eu"
+					}];
 
 			$scope.loginFromForm = function() {
 				var dataObj = {
@@ -84,16 +92,16 @@ app.controller("analyzerCtrl", [
 					'Content-Type' : 'application/x-www-form-urlencoded'
 				}
 			}).then(function successfunction(response) {
+					console.log(response);
 					$scope.instrumentData = response.data;
 			}, function failfunction(response) {
-					console.log(response);	
+					console.log("fail");	
 			});
 			
 		    $scope.$watch(function() {
 		    	return $scope.selectedInstrument;
 		    }, function() {
 		    	if($scope.selectedInstrument) {
-		    		console.log(rootURL + '/get/buy/usr/'+$scope.selectedInstrument);
 			    	$http({
 						method : "GET",
 						url : rootURL + '/get/buy/usr/'+$scope.selectedInstrument,
@@ -103,9 +111,82 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-							console.log(response)
+						console.log(response);
+							$scope.buyPrices = response.data;
+							
 					}, function failfunction(response) {
-							console.log(response);	
+						console.log("fail");	
+					});
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/sell/usr/'+$scope.selectedInstrument,
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+						console.log(response);
+							$scope.sellPrices = response.data;
+							
+					}, function failfunction(response) {
+						console.log("fail");	
+					});
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/buy/usr/'+$scope.selectedInstrument+'/avg',
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+						console.log(response);
+							$scope.avgBuyPrice = response.data;
+					}, function failfunction(response) {
+						console.log("fail");		
+					});
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/sell/usr/'+$scope.selectedInstrument+'/avg',
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+						console.log(response);
+							$scope.avgSellPrice = response.data;
+					}, function failfunction(response) {
+						console.log("fail");		
+					});
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/buy/usr/'+$scope.selectedInstrument+'/vol',
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+						console.log(response);
+							$scope.buyVol = response.data;
+					}, function failfunction(response) {
+						console.log("fail");		
+					});
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/sell/usr/'+$scope.selectedInstrument+'/vol',
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+						console.log(response);
+							$scope.sellVol = response.data;
+					}, function failfunction(response) {
+						console.log("fail");		
 					});
 		    	}
 

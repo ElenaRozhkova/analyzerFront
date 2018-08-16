@@ -40,19 +40,19 @@
 							<tbody>
 								<tr>
 									<td><b>Volume Bought</b></td>
-									<td>11129751</td>
+									<td ng-bind="$parent.buyVol"></td>
 								</tr>
 								<tr>
 									<td><b>Avg Price Bought</b></td>
-									<td>$5.00</td>
+									<td ng-bind="$parent.buyVol"></td>
 								</tr>
 								<tr>
 									<td><b>Volume Sold</b></td>
-									<td>11129751</td>
+									<td ng-bind="$parent.avgSellPrice"></td>
 								</tr>
 								<tr>
 									<td><b>Avg Price Sold</b></td>
-									<td>$4.77</td>
+									<td ng-bind="$parent.avgBuyPrice"></td>
 								</tr>
 								<tr>
 									<td><b>Most Traded By</b></td>
@@ -100,23 +100,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>John</td>
-								<td>Carter</td>
-								<td>johncarter@mail.com</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Peter</td>
-								<td>Parker</td>
-								<td>peterparker@mail.com</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>John</td>
-								<td>Rambo</td>
-								<td>johnrambo@mail.com</td>
+							<tr ng-repeat="row in rawData">
+								<td ng-bind="row.id"></td>
+								<td ng-bind="row.firstName"></td>
+								<td ng-bind="row.lastName"></td>
+								<td ng-bind="row.emailAdress"></td>
 							</tr>
 						</tbody>
 					</table>

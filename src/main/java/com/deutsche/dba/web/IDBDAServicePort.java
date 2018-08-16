@@ -57,6 +57,30 @@ public interface IDBDAServicePort
                                             @FormParam("pwd")String pwd );
     
     @GET
+    @Path("/get/buy/{usr}/{instr}/avg")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInstrumentBuyAvgPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr );
+    
+    @GET
+    @Path("/get/sell/{usr}/{instr}/avg")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInstrumentSellAvgPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr );
+    
+    @GET
+    @Path("/get/buy/{usr}/{instr}/vol")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInstrumentBuyVolPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr );
+    
+    @GET
+    @Path("/get/sell/{usr}/{instr}/vol")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInstrumentSellVolPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr );
+    
+    @GET
     @Path("/get/buy/{usr}/{instr}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getInstrumentBuyPrice(  @PathParam("usr")String usr,
@@ -66,7 +90,7 @@ public interface IDBDAServicePort
     @Path("/get/sell/{usr}/{instr}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getInstrumentSellPrice(  @PathParam("usr")String usr,
-    		@PathParam("instr")String instr );
+    		@PathParam("instr")int instr );
     
     @GET
     @Path("/get/instruments/all")

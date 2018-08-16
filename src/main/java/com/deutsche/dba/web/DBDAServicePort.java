@@ -105,6 +105,66 @@ public class DBDAServicePort implements IDBDAServicePort
     
     @Override
     @GET
+    @Path("/get/buy/{usr}/{instr}/avg")
+    public Response getInstrumentBuyAvgPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr ) {
+    	 String result = SQLQueries.avgPriceBought(instr);
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
+    @Path("/get/sell/{usr}/{instr}/avg")
+    public Response getInstrumentSellAvgPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr ) {
+    	 String result = SQLQueries.avgPriceSold(instr);
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
+    @Path("/get/buy/{usr}/{instr}/vol")
+    public Response getInstrumentBuyVolPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr ) {
+    	 String result = SQLQueries.volumeBought(instr);
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
+    @Path("/get/sell/{usr}/{instr}/vol")
+    public Response getInstrumentSellVolPrice(  @PathParam("usr")String usr,
+    		@PathParam("instr")int instr ) {
+    	 String result = SQLQueries.volumeSold(instr);
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
     @Path("/get/buy/{usr}/{instr}")
     public Response getInstrumentBuyPrice(  @PathParam("usr")String usr,
     		@PathParam("instr")int instr ) {
@@ -122,8 +182,8 @@ public class DBDAServicePort implements IDBDAServicePort
     @GET
     @Path("/get/sell/{usr}/{instr}")
     public Response getInstrumentSellPrice(  @PathParam("usr")String usr,
-    		@PathParam("instr")String instr ) {
-        String result = userController.verifyLoginDetails(usr, instr);
+    		@PathParam("instr")int instr ) {
+    	 String result = SQLQueries.toJSON(SQLQueries.instrumentSellPriceVsTime(instr));
         
         if( result != null)
         {
