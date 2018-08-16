@@ -104,6 +104,12 @@ public interface IDBDAServicePort
     public Response getAllInstruments();
     
     @GET
+    @Path("/get/priceinfo/{usr}/{instr}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getInstrumentPriceInfo(@PathParam("usr")String usr,
+    		@PathParam("instr")int instr);
+    
+    @GET
     @Path("/get/data/raw")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRawData();
@@ -112,5 +118,11 @@ public interface IDBDAServicePort
     @Path("/get/counterparty/raw")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRawCounterparty();
+    
+    @GET
+    @Path("/get/counterparty/{usr}/{instr}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getCounterpartyByInstrument(@PathParam("usr")String usr,
+    		@PathParam("instr")int instr);
 
 }

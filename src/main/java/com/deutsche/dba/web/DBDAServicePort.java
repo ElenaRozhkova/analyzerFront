@@ -193,6 +193,21 @@ public class DBDAServicePort implements IDBDAServicePort
     
     @Override
     @GET
+    @Path("/get/counterparty/{usr}/{instr}")
+    public Response getCounterpartyByInstrument(@PathParam("usr")String usr,
+    		@PathParam("instr")int instr ) {
+        String result = SQLQueries.toJSON(SQLQueries.counterpartyTablewithID(instr));
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
     @Path("/get/buy/{usr}/{instr}")
     public Response getInstrumentBuyPrice(  @PathParam("usr")String usr,
     		@PathParam("instr")int instr ) {
@@ -241,6 +256,21 @@ public class DBDAServicePort implements IDBDAServicePort
     @Path("/get/instruments/all")
     public Response getAllInstruments( ) {
         String result = instrumentController.getAllInstruments();
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
+    @Path("/get/priceinfo/{usr}/{instr}")
+    public Response getInstrumentPriceInfo(@PathParam("usr")String usr,
+    		@PathParam("instr")int instr ) {
+        String result = SQLQueries.toJSON(SQLQueries.instrumentPriceInfo(instr));
         
         if( result != null)
         {
