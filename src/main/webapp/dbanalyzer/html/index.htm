@@ -40,12 +40,13 @@
 								aria-hidden="true"></i></span>&nbsp;&nbsp;Instrument Insight
 						</div>
 						<div class="card-body">
-							<h4 class="card-title stock-price">
-								{{priceinfo}} &nbsp;<span class="input-group-addon"><i
-									class="fa fa-arrow-up" aria-hidden="true"></i></span>
+							<h4 class="card-title stock-price"><span id="priceColor">
+								<a ng-repeat="info in priceinfo">{{info}}</a> &nbsp;<span class="input-group-addon"><i ng-if="price==='positive'"
+									class="fa fa-arrow-up" aria-hidden="true"></i><i
+									ng-if="price==='negative'" class="fa fa-arrow-down" aria-hidden="true"></i></span></span>
 							</h4>
 							<h6 class="card-subtitle mb-2 text-muted">{{day}} {{month}},
-								{{hours}}:{{minutes}} CEST · Disclaimer</h6>
+								{{hours}}:{{minutes}} CEST &middot; Disclaimer</h6>
 							<table class="table table-hover">
 								<tbody>
 									<tr>
@@ -128,7 +129,7 @@
 		<section>
 			<ul class="nav nav-tabs">
 				<li class="nav-item" ng-click="switchTab('index')"><a
-					class="nav-link db-color">Deals</a></li>
+					class="nav-link db-color">Instrument</a></li>
 				<li class="nav-item" ng-click="switchTab('counterparty')"><a
 					class="nav-link active">Counterparty</a></li>
 				<li class="nav-item" ng-click="switchTab('portfolio')"><a
@@ -175,11 +176,7 @@
 						
 						<select
 								ng-model="$parent.selectedCounterparty" class="form-control">
-							<option selected>Estelle</option>
-							<option>Lewis</option>
-							<option>Lina</option>
-							<option>Richard</option>
-							<option>Selvyn</option>			
+							<option ng-repeat="option in counterparties" value="{{option.value}}" selected>{{option.name}}</option>		
 							</select>
 					</div>
 				</div>
@@ -191,7 +188,7 @@
 							aria-hidden="true"></i></span>&nbsp;&nbsp;Counterparty Insight
 					</div>
 					<div class="card-body">
-						<h2 class="card-title">Estelle</h2>
+						<h2 class="card-title">{{selectedCounterpartyName}}</h2>
 						<table class="table table-hover">
 							<tbody>
 								<tr>
@@ -203,12 +200,12 @@
 									<td>Active</td>
 								</tr>
 								<tr>
-									<td><b>Realized Position</b></td>
-									<td>2</td>
+									<td><b>Realized Profit</b></td>
+									<td ng-bind="counterpartyRP"></td>
 								</tr>
 								<tr>
 									<td><b>Effective Profit</b></td>
-									<td>$4,787.00</td>
+									<td ng-bind="counterpartyEF"></td>
 								</tr>
 							</tbody>
 						</table>
@@ -250,7 +247,7 @@
 		<section>
 			<ul class="nav nav-tabs">
 				<li class="nav-item" ng-click="switchTab('index')"><a
-					class="nav-link db-color">Deals</a></li>
+					class="nav-link db-color">Instrument</a></li>
 				<li class="nav-item" ng-click="switchTab('counterparty')"><a
 					class="nav-link db-color">Counterparty</a></li>
 				<li class="nav-item" ng-click="switchTab('portfolio')"><a

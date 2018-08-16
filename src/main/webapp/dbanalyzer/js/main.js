@@ -32,6 +32,29 @@ app.controller("analyzerCtrl", [
 				"Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dez"
 			]
 			
+			$scope.counterparties = [
+				{
+					name: "Lina",
+					value: "1"
+				},
+				{
+					name: "Richard",
+					value: "2"
+				},
+				{
+					name: "Selvyn",
+					value: "3"
+				},
+				{
+					name: "Lewis",
+					value: "4"
+				},
+				{
+					name: "Estelle",
+					value: "5"
+				},
+			]
+			
 			$scope.day = date.getDate();
 			$scope.month = months[date.getMonth()];
 			$scope.hours = date.getHours();
@@ -44,7 +67,6 @@ app.controller("analyzerCtrl", [
 				}
 				$scope.loginUsername = null;
 				$scope.loginPassword = null;
-				console.log(dataObj)
 				var now = new Date();
 				var expDate = new Date(now.setMinutes(now.getMinutes() + 30));
 
@@ -57,7 +79,6 @@ app.controller("analyzerCtrl", [
 						'Content-Type' : 'application/x-www-form-urlencoded'
 					}
 				}).then(function successfunction(response) {
-						console.log(response);
 						$scope.username = response.data.userID;
 						$cookies.put("usr", $scope.username, {
 							'expires' : expDate
@@ -70,7 +91,6 @@ app.controller("analyzerCtrl", [
 			}
 			
 			$scope.switchTab = function(tabName) {
-				console.log(tabName);
 				$scope.indexTab = tabName;
 			}
 
@@ -95,11 +115,11 @@ app.controller("analyzerCtrl", [
 					'Content-Type' : 'application/x-www-form-urlencoded'
 				}
 			}).then(function successfunction(response) {
-					console.log(response);
 					$scope.instrumentData = response.data;
+					$scope.selectedInstrument = "1";
 			}, function failfunction(response) {
-					console.log("fail");	
 			});
+			
 			
 			$http({
 				method : "GET",
@@ -110,10 +130,8 @@ app.controller("analyzerCtrl", [
 					'Content-Type' : 'application/x-www-form-urlencoded'
 				}
 			}).then(function successfunction(response) {
-				console.log(response);
 				$scope.rawDealData = response.data;
-			}, function failfunction(response) {
-				console.log("fail");	
+			}, function failfunction(response) {	
 			});
 			
 			$http({
@@ -125,16 +143,19 @@ app.controller("analyzerCtrl", [
 					'Content-Type' : 'application/x-www-form-urlencoded'
 				}
 			}).then(function successfunction(response) {
-				console.log(response);
 				$scope.rawCounterpartyData = response.data;
-			}, function failfunction(response) {
-				console.log("fail");	
+			}, function failfunction(response) {	
 			});
 			
 		    $scope.$watch(function() {
 		    	return $scope.selectedCounterparty;
 		    }, function() {
 		    	if($scope.selectedCounterparty) {
+		    		angular.forEach($scope.counterparties , function(value){
+		    			if (value.value == $scope.selectedCounterparty) {
+		    				$scope.selectedCounterpartyName = value.name;
+		    			}
+		    		})
 			    	$http({
 						method : "GET",
 						url : rootURL + '/get/counterparty/usr/'+$scope.selectedCounterparty,
@@ -144,11 +165,14 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-				    	console.log("cbi");
-						console.log(response);
-							$scope.counterpartyById = response.data;
-					}, function failfunction(response) {
-						console.log(response);		
+							$scope.counterpartyData = response.data;
+							$scope.counterpartyRP = 0;
+							$scope.counterpartyEP = 0;
+							angular.forEach($scope.counterpartyData, function(value){
+								$scope.counterpartyRP += value[4];
+								$scope.counterpartyEP += value[5];
+							});
+					}, function failfunction(response) {	
 					});
 		    	}
 
@@ -167,11 +191,9 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-						console.log(response);
 							$scope.buyPrices = response.data;
 							
 					}, function failfunction(response) {
-						console.log("fail");	
 					});
 			    	$http({
 						method : "GET",
@@ -182,11 +204,9 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-						console.log(response);
 							$scope.sellPrices = response.data;
 							
 					}, function failfunction(response) {
-						console.log("fail");	
 					});
 			    	$http({
 						method : "GET",
@@ -197,11 +217,9 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-						console.log(response);
 							$scope.avgBuyPrice = response.data;
 					}, function failfunction(response) {
-						console.log("fail");		
-					});
+											});
 			    	$http({
 						method : "GET",
 						url : rootURL + '/get/sell/usr/'+$scope.selectedInstrument+'/avg',
@@ -211,10 +229,8 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-						console.log(response);
 							$scope.avgSellPrice = response.data;
-					}, function failfunction(response) {
-						console.log("fail");		
+					}, function failfunction(response) {	
 					});
 			    	$http({
 						method : "GET",
@@ -225,10 +241,8 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-						console.log(response);
 							$scope.buyVol = response.data;
-					}, function failfunction(response) {
-						console.log("fail");		
+					}, function failfunction(response) {		
 					});
 			    	$http({
 						method : "GET",
@@ -239,10 +253,8 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-						console.log(response);
 							$scope.sellVol = response.data;
 					}, function failfunction(response) {
-						console.log("fail");		
 					});
 			    	$http({
 						method : "GET",
@@ -253,25 +265,8 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-						console.log(response);
 							$scope.mtb = response.data;
 					}, function failfunction(response) {
-						console.log(response);		
-					});
-			    	$http({
-						method : "GET",
-						url : rootURL + '/get/counterparty/usr/'+$scope.selectedInstrument,
-						data : null,
-						dataType : "json",
-						headers : {
-							'Content-Type' : 'application/x-www-form-urlencoded'
-						}
-					}).then(function successfunction(response) {
-				    	console.log("cbi");
-						console.log(response);
-							$scope.counterpartyByInstrument = response.data;
-					}, function failfunction(response) {
-						console.log(response);		
 					});
 			    	$http({
 						method : "GET",
@@ -282,11 +277,17 @@ app.controller("analyzerCtrl", [
 							'Content-Type' : 'application/x-www-form-urlencoded'
 						}
 					}).then(function successfunction(response) {
-				    	console.log("priceinfo");
-						console.log(response);
+				    	
 							$scope.priceinfo = response.data;
+							if ($scope.priceinfo[1] >= 0){
+								$scope.price = "positive";
+								angular.element("#priceColor").style("color","green")
+							} else {
+								$scope.price = "negative";
+								angular.element("#priceColor").style("color","red")
+							}
+
 					}, function failfunction(response) {
-						console.log(response);		
 					});
 		    	}
 
