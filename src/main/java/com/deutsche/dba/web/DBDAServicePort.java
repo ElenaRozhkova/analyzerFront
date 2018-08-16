@@ -165,6 +165,20 @@ public class DBDAServicePort implements IDBDAServicePort
     
     @Override
     @GET
+    @Path("/get/data/raw")
+    public Response getRawData( ) {
+        String result = SQLQueries.toJSON(SQLQueries.rawDataTable());
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
     @Path("/get/buy/{usr}/{instr}")
     public Response getInstrumentBuyPrice(  @PathParam("usr")String usr,
     		@PathParam("instr")int instr ) {
