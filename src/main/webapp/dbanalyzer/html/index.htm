@@ -94,12 +94,12 @@
 						<thead>
 							<tr>
 								<th>Deal ID</th>
-								<th>Deal time</th>
-								<th>Deal type</th>
-								<th>Deal amount</th>
-								<th>Deal quanty</th>
-								<th>instrument name</th>
-								<th>counterparty name</th>
+								<th>Deal Time</th>
+								<th>Deal Type</th>
+								<th>Deal Amount</th>
+								<th>Deal Quanty</th>
+								<th>Instrument Name</th>
+								<th>Counterparty Name</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -165,30 +165,19 @@
 					<table class="table raw-data-table table-sm">
 						<thead>
 							<tr>
-								<th>Row</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Email</th>
+								<th>Counterparty name</th>
+								<th>Instrument Name</th>
+								<th>Total Buys</th>
+								<th>Total Sells</th>
+								<th>Net Position</th>
+								<th>Released Profit</th>
+								<th>Effective Profit</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>John</td>
-								<td>Carter</td>
-								<td>johncarter@mail.com</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Peter</td>
-								<td>Parker</td>
-								<td>peterparker@mail.com</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>John</td>
-								<td>Rambo</td>
-								<td>johnrambo@mail.com</td>
+														<tr ng-repeat="row in rawCounterpartyData">
+								<td ng-repeat="col in row track by $index">{{col}}</td>
+
 							</tr>
 						</tbody>
 					</table>
