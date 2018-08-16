@@ -120,9 +120,9 @@ public interface IDBDAServicePort
     public Response getRawCounterparty();
     
     @GET
-    @Path("/get/counterparty/{usr}/{instr}")
+    @Path("/get/counterparty/{usr}/{count}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getCounterpartyByInstrument(@PathParam("usr")String usr,
-    		@PathParam("instr")int instr);
+    public Response getCounterpartyById(@PathParam("usr")String usr,
+    		@PathParam("count")int count);
 
 }

@@ -132,6 +132,29 @@ app.controller("analyzerCtrl", [
 			});
 			
 		    $scope.$watch(function() {
+		    	return $scope.selectedCounterparty;
+		    }, function() {
+		    	if($scope.selectedCounterparty) {
+			    	$http({
+						method : "GET",
+						url : rootURL + '/get/counterparty/usr/'+$scope.selectedCounterparty,
+						data : null,
+						dataType : "json",
+						headers : {
+							'Content-Type' : 'application/x-www-form-urlencoded'
+						}
+					}).then(function successfunction(response) {
+				    	console.log("cbi");
+						console.log(response);
+							$scope.counterpartyById = response.data;
+					}, function failfunction(response) {
+						console.log(response);		
+					});
+		    	}
+
+		    }, true);
+			
+		    $scope.$watch(function() {
 		    	return $scope.selectedInstrument;
 		    }, function() {
 		    	if($scope.selectedInstrument) {

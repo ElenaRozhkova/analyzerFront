@@ -1,91 +1,101 @@
 <div id="index">
-	<div ng-show="indexTab!=='counterparty'">
+	<div ng-show="indexTab!=='counterparty' && indexTab !== 'portfolio'">
+
 		<section>
 			<ul class="nav nav-tabs">
-				<li class="nav-item" ng-click="switchTab('deals')"><a
-					class="nav-link active">Deals</a></li>
-				<li class="nav-item" ng-click="switchTab('counterparty')"><a
-					class="nav-link">Counterparty</a></li>
+				<li ng-click="switchTab('deals')" class="nav-item"><a
+					class="nav-link active">Instrument</a></li>
+				<li ng-click="switchTab('counterparty')" class="nav-item"><a
+					class="nav-link db-color">Counterparty</a></li>
+				<li ng-click="switchTab('portfolio')" class="nav-item"><a
+					class="nav-link db-color">Your Portfolio</a></li>
 			</ul>
-			<div class="flex-container">
-				<div class="card stock-chart">
-					<div class="card-header chart-box-header">
-						<span class="input-group-addon"><i class="fa fa-chart-line"
-							aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Price Overview
-					</div>
-					<div class="card-body">
-						<div class="stock-line">
-							<svg id="svgDeals" width="700" height="320"></svg>
+
+			<div class="row" style="margin-top: 30px;">
+				<div class="col-sm-8">
+					<div class="card stock-chart">
+						<div class="card-header chart-box-header db-color">
+							<span class="input-group-addon"><i
+								class="fa fa-chart-line" aria-hidden="true"></i></span>&nbsp;&nbsp;Instrument
+							Overview
 						</div>
-					</div>
-					<div class="card-footer">
-						<select ng-model="$parent.selectedInstrument" class="form-control">
-							<option ng-repeat="option in instrumentData" value="{{option.instrumentID}}">{{option.instrumentName}}</option>
-						</select>
+						<div class="card-body">
+							<div class="stock-line">
+								<svg id="svgDeals" width="700" height="320"></svg>
+							</div>
+						</div>
+						<div class="card-footer">
+							<label for="instrument-dropdown">Select an Instrument:</label> <select
+								ng-model="$parent.selectedInstrument" class="form-control">
+								<option ng-repeat="option in instrumentData"
+									value="{{option.instrumentID}}">{{option.instrumentName}}</option>
+							</select>
+						</div>
 					</div>
 				</div>
-				<div class="card stock-info-box" style="max-width: 22rem;">
-					<div class="card-header chart-box-header">
-						<span class="input-group-addon"><i class="fa fa-list"
-							aria-hidden="true"></i></span>&nbsp;&nbsp;Stock Insight
-					</div>
-					<div class="card-body">
-						<h4 class="card-title stock-price">
-							10.11 EUR +0.012 (0.12%)&nbsp;<span class="input-group-addon"><i
-								class="fa fa-arrow-up" aria-hidden="true"></i></span>
-						</h4>
-						<h6 class="card-subtitle mb-2 text-muted">{{day}} {{month}}, {{hours}}:{{minutes}} CEST
-							Â· Disclaimer</h6>
-						<table class="table table-hover">
-							<tbody>
-								<tr>
-									<td><b>Volume Bought</b></td>
-									<td ng-bind="$parent.buyVol"></td>
-								</tr>
-								<tr>
-									<td><b>Avg Price Bought</b></td>
-									<td ng-bind="$parent.avgBuyPrice"></td>
-								</tr>
-								<tr>
-									<td><b>Volume Sold</b></td>
-									<td ng-bind="$parent.sellVol"></td>
-								</tr>
-								<tr>
-									<td><b>Avg Price Sold</b></td>
-									<td ng-bind="$parent.avgSellPrice"></td>
-								</tr>
-								<tr>
-									<td><b>Most Traded By</b></td>
-									<td ng-bind="$parent.mtb"></td>
-								</tr>
-							</tbody>
-						</table>
+				<div class="col-sm-4">
+					<div class="card stock-info-box">
+						<div class="card-header chart-box-header db-color">
+							<span class="input-group-addon"><i class="fa fa-list"
+								aria-hidden="true"></i></span>&nbsp;&nbsp;Instrument Insight
+						</div>
+						<div class="card-body">
+							<h4 class="card-title stock-price">
+								{{priceinfo}} &nbsp;<span class="input-group-addon"><i
+									class="fa fa-arrow-up" aria-hidden="true"></i></span>
+							</h4>
+							<h6 class="card-subtitle mb-2 text-muted">{{day}} {{month}},
+								{{hours}}:{{minutes}} CEST · Disclaimer</h6>
+							<table class="table table-hover">
+								<tbody>
+									<tr>
+										<td><b>Volume Bought</b></td>
+										<td ng-bind="$parent.buyVol"></td>
+									</tr>
+									<tr>
+										<td><b>Avg Price Bought</b></td>
+										<td ng-bind="$parent.avgBuyPrice"></td>
+									</tr>
+									<tr>
+										<td><b>Volume Sold</b></td>
+										<td ng-bind="$parent.sellVol"></td>
+									</tr>
+									<tr>
+										<td><b>Avg Price Sold</b></td>
+										<td ng-bind="$parent.avgSellPrice"></td>
+									</tr>
+									<tr>
+										<td><b>Most Traded By</b></td>
+										<td ng-bind="$parent.mtb"></td>
+									</tr>
+								</tbody>
+							</table>
 
-						<div class="row text-center buy-sell">
-							<div class="col-sm-3">
-								<button type="button" class="btn btn-primary">Buy</button>
+							<div class="row text-center buy-sell">
+								<div class="col">
+									<button type="button" class="btn btn-custom">Buy</button>
+								</div>
+								<div class="col">
+									<button type="button" class="btn btn-custom">Trading
+										Price</button>
+								</div>
+								<div class="col">
+									<button type="button" class="btn btn-custom">Sell</button>
+								</div>
 							</div>
-							<div class="col-sm-6">
-								<button type="button" class="btn btn-secondary">Trading
-									Price</button>
-							</div>
-							<div class="col-sm-3">
-								<button type="button" class="btn btn-dark">Sell</button>
+							<div class="row text-center market-info">
+								<div class="col">
+									<a href="#" class="card-link db-color">Market Information</a>
+								</div>
 							</div>
 						</div>
-						<div class="row text-center market-info">
-							<div class="col">
-								<a href="#" class="card-link">Market Information</a>
-							</div>
-						</div>
-
 					</div>
 				</div>
 			</div>
 		</section>
 		<section class="data-table-section">
 			<div class="card">
-				<div class="card-header chart-box-header">
+				<div class="card-header chart-box-header db-color">
 					<span class="input-group-addon"><i class="fa fa-database"
 						aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data
 				</div>
@@ -118,46 +128,107 @@
 	<div ng-show="indexTab === 'counterparty'">
 		<section>
 			<ul class="nav nav-tabs">
-				<li ng-click="switchTab('deals')" class="nav-item"><a
-					class="nav-link">Deals</a></li>
-				<li ng-click="switchTab('counterparty')" class="nav-item"><a
+				<li class="nav-item" ng-click="switchTab('index')"><a
+					class="nav-link db-color">Deals</a></li>
+				<li class="nav-item" ng-click="switchTab('counterparty')"><a
 					class="nav-link active">Counterparty</a></li>
+				<li class="nav-item" ng-click="switchTab('portfolio')"><a
+					class="nav-link db-color">Your Portfolio</a></li>
 			</ul>
-
-
-			<div class="flex-container counterparty-pie">
-				<div class="card pie-chart-box">
-					<div class="card-header chart-box-header">
-						<span class="input-group-addon"><i class="fa fa-chart-pie"
-							aria-hidden="true"></i></span> Instrument Buys
-					</div>
-					<div class="card-body">
-						<div class="pie">
-						<svg id="svgCounterpartyBuys" width="270" height="270">
-						</svg>
+		</section>
+		<div class="row counterparty-info">
+			<div class=" col-sm-8">
+				<div class="card">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card pie-chart-box">
+								<div class="card-header chart-box-header db-color text-center">
+									<span class="input-group-addon"><i
+										class="fa fa-chart-pie" aria-hidden="true"></i></span> Instrument
+									Buys by Counterparty
+								</div>
+								<div class="card-body pie-body">
+									<div class="pie1">
+										<svg id="svgCounterparty1" width="270" height="270">
+									
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="card pie-chart-box">
+								<div class="card-header chart-box-header db-color text-center">
+									<span class="input-group-addon"><i
+										class="fa fa-chart-pie" aria-hidden="true"></i></span> Instrument
+									Sells by Counterparty
+								</div>
+								<div class="card-body pie-body">
+									<div class="pie2">
+										<svg id="svgCounterparty2" width="270" height="270">
+									
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="card pie-chart-box">
-					<div class="card-header chart-box-header">
-						<span class="input-group-addon"><i class="fa fa-chart-pie"
-							aria-hidden="true"></i></span> Instrument Sells
-					</div>
-					<div class="card-body">
-						<div class="pie">
-						<svg id="svgCounterpartySells" width="270" height="270">
-						</svg>
-						</div>
+					<div class="card-footer">
+						<label for="counterparty-dropdown">Select a Counterparty:</label>
+						
+						<select
+								ng-model="$parent.selectedCounterparty" class="form-control">
+							<option selected>Estelle</option>
+							<option>Lewis</option>
+							<option>Lina</option>
+							<option>Richard</option>
+							<option>Selvyn</option>			
+							</select>
+						
+						
+						<select class="form-control" id="counterparty-dropdown">
+							<option selected>Estelle</option>
+							<option>Lewis</option>
+							<option>Lina</option>
+							<option>Richard</option>
+							<option>Selvyn</option>
+						</select>
 					</div>
 				</div>
 			</div>
-
-
-
-		</section>
+			<div class="col-sm-4">
+				<div class="card stock-info-box">
+					<div class="card-header chart-box-header db-color">
+						<span class="input-group-addon"><i class="fa fa-list"
+							aria-hidden="true"></i></span>&nbsp;&nbsp;Counterparty Insight
+					</div>
+					<div class="card-body">
+						<h2 class="card-title">Estelle</h2>
+						<table class="table table-hover">
+							<tbody>
+								<tr>
+									<td><b>Register Date</b></td>
+									<td>1st May 2018</td>
+								</tr>
+								<tr>
+									<td><b>Status</b></td>
+									<td>Active</td>
+								</tr>
+								<tr>
+									<td><b>Realized Position</b></td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td><b>Effective Profit</b></td>
+									<td>$4,787.00</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
 		<section class="data-table-section">
 			<div class="card">
-				<div class="card-header chart-box-header">
+				<div class="card-header chart-box-header db-color">
 					<span class="input-group-addon"><i class="fa fa-database"
 						aria-hidden="true"></i></span>&nbsp;&nbsp;Raw Data
 				</div>
@@ -175,7 +246,7 @@
 							</tr>
 						</thead>
 						<tbody>
-														<tr ng-repeat="row in rawCounterpartyData">
+							<tr ng-repeat="row in rawCounterpartyData">
 								<td ng-repeat="col in row track by $index">{{col}}</td>
 
 							</tr>
@@ -183,6 +254,18 @@
 					</table>
 				</div>
 			</div>
+		</section>
+	</div>
+	<div ng-show="indexTab === 'portfolio'">
+		<section>
+			<ul class="nav nav-tabs">
+				<li class="nav-item" ng-click="switchTab('index')"><a
+					class="nav-link db-color">Deals</a></li>
+				<li class="nav-item" ng-click="switchTab('counterparty')"><a
+					class="nav-link db-color">Counterparty</a></li>
+				<li class="nav-item" ng-click="switchTab('portfolio')"><a
+					class="nav-link active">Your Portfolio</a></li>
+			</ul>
 		</section>
 	</div>
 </div>

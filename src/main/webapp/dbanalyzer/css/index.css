@@ -1,53 +1,87 @@
-#index .flex-container {
-	display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-	display: -ms-flexbox; /* TWEENER - IE 10 */
-	display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
-	display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
-	justify-content: space-between;
-	flex-wrap: wrap;
+body {
+    color: #003c7d;
 }
 
-#index .counterparty-pie {
-	justify-content: center;
+.container{
+    max-width: 100%;
 }
 
-#index .invisible-card {
-	width: 100%;
+.flex-container{
+  display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-#index .pie-chart-box {
-	margin: 0 15px;
+.pie-body{
+    margin-left: 50px;
 }
 
-#index .card {
-	margin-top: 30px;
-}
-
-#index .chart-box-header {
+.chart-box-header{
 	border-bottom: none;
 	background-color: #fff;
 	font-size: 18px;
-	border-top: 5px
+    border-top: 5px
 }
 
-#index .stock-price {
-	color: green;
+.stock-price{
+    color: green;
 }
 
-#index .buy-sell {
-	margin: 10px 0;
+.buy-sell{
+    margin: 10px 0;
 }
 
-#index .market-info {
-	margin-top: 20px;
+.market-info{
+    margin-top: 20px;
 }
 
-#index .data-table-section {
+.data-table-section {
 	margin: 30px 0;
 }
 
-#index tr {
-	line-height: 18px;
-	min-height: 18px;
-	height: 18px;
+tr {
+   line-height: 18px;
+   min-height: 18px;
+   height: 18px;
+}
+
+.row.counterparty-info{
+    margin-top: 30px;
+}
+
+
+.card.pie-chart-box{
+    border: none;
+}
+
+.counterparty-drop{
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.btn-custom{
+    background-color: #003c7d;
+    border-color: #003c7d;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #002854;
+    border-color: #002854;
+}
+
+.btn-custom:focus {
+    box-shadow: 0 0 0 0.2rem rgba(32,65,101,.5);
+}
+
+a.card-link:hover{
+    text-decoration:underline;
+    color: #003c7d;
+}
+
+h2.card-title{
+    font-weight: 300;
 }

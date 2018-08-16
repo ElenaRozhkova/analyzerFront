@@ -1,89 +1,90 @@
-#login .login-img {
-	background: url('../images/small_logo.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-	height: 330px;
+#login .login-img{
+    background: url('../images/small_logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 330px;
 }
 
 #login .login {
-	padding: 5px 120px;
+  padding: 5px 120px;
 }
 
 #login .btn {
-	padding: 8px 43px;
-	border-radius: 19px;
+  padding: 8px 43px;
+  border-radius: 19px;
 }
 
-#login .login-btn {
-	color: #fff;
+#login .login-btn{
+    color: #fff;
 }
 
 #login .login-btn:hover {
-	color: #fff;
+    color: #fff;
 }
 
-#login .btn-info {
-	background-color: #1f29ba;
-	margin: 20px 0;
-	border: 0;
-	transition: all 0.7s;
-	border: 1px solid##1f29ba;
+#login .btn-info{
+    background-color: #1f29ba;
+    margin: 20px 0;
+    border: 0;
+    transition: all 0.7s;
+    border: 1px solid ##1f29ba;
 }
 
-#login .btn-info:hover {
-	background-color: #181f87;
-	color: #fff;
+#login .btn-info:hover{
+    background-color: #181f87;
+    color: #fff;
 }
 
-#login .g {
-	padding: 90px 0;
+#login .g{
+  padding: 90px 0;
 }
 
-#login .img-padding {
-	padding: 90px 0;
+#login .img-padding{
+  padding: 90px 0;
 }
 
-#login .h {
-	margin: 15px 0;
+
+#login .h{
+  margin: 15px 0;
 }
 
-#login .form-control {
-	border-radius: 0;
-	border: 0;
-	box-shadow: none;
-	transition: all 0.7s;
+#login .form-control{
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  transition: all 0.7s;
 }
 
-#login .input-group {
-	border-bottom: 1px solid #ccc;
+#login .input-group{
+  border-bottom: 1px solid #ccc;
 }
 
-#login .input-group-addon {
-	background: 0;
-	border-radius: 0;
-	box-shadow: none;
-	border: 0;
+#login .input-group-addon{
+  background: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: 0;
 }
 
-#login .form-control:focus {
-	border: 0;
-	box-shadow: none;
+#login .form-control:focus{
+  border: 0;
+  box-shadow: none;
 }
 
-@media only screen and (max-width : 991px) {
-	.login-img {
-		height: 180px;
-	}
-	#login   .login {
-		padding: 5px 20px;
-	}
-	#login   .g {
-		margin: 40px 0;
-		padding: 20px 0;
-	}
-	#login   .img-padding {
-		padding: 0;
-		padding-top: 20px;
-	}
+@media only screen and (max-width : 991px){
+  #login .login-img{
+    height:180px;
+  }
+  #login .login{
+    padding: 5px 20px;
+  }
+  #login .g{
+    margin: 40px 0;
+    padding: 20px 0;
+  }
+  #login .img-padding {
+    padding: 0;
+    padding-top: 20px;
+  }
 }

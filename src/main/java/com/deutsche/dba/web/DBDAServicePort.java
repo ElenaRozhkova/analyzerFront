@@ -193,10 +193,10 @@ public class DBDAServicePort implements IDBDAServicePort
     
     @Override
     @GET
-    @Path("/get/counterparty/{usr}/{instr}")
-    public Response getCounterpartyByInstrument(@PathParam("usr")String usr,
-    		@PathParam("instr")int instr ) {
-        String result = SQLQueries.toJSON(SQLQueries.counterpartyTablewithID(instr));
+    @Path("/get/counterparty/{usr}/{count}")
+    public Response getCounterpartyById(@PathParam("usr")String usr,
+    		@PathParam("count")int count ) {
+        String result = SQLQueries.toJSON(SQLQueries.counterpartyTablewithID(count));
         
         if( result != null)
         {

@@ -22,6 +22,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="dbanalyzer/css/main.css" />
 <link rel="stylesheet" href="dbanalyzer/css/nav.css" />
+<link rel="stylesheet" href="dbanalyzer/css/footer.css" />
 <link rel="stylesheet" href="dbanalyzer/css/index.css" />
 <link rel="stylesheet" href="dbanalyzer/css/login.css" />
 <script
@@ -54,22 +55,20 @@
 </head>
 
 <body ng-app="analyzerApp" ng-controller="analyzerCtrl">
-	<nav class="navbar navbar-expand-md">
-		<div class="container">
-			<a href="#!index" class="navbar-brand nav-text d-flex w-50 mr-auto">Investment
-				Services</a>
-			<div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
-				<ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-					<li class="nav-item dropdown"><a ng-show="username"
-						class="nav-link dropdown-toggle nav-text" href="#"
-						id="navbarDropdownMenuLink" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false"> <span
-							class="input-group-addon"><i class="fa fa-user"
-								aria-hidden="true"></i></span> {{username}}
-					</a>
-						<div class="dropdown-menu"
-							aria-labelledby="navbarDropdownMenuLink">
-							<a href="#!portfolio" class="dropdown-item"> <span
+<nav class="navbar navbar-expand-sm">
+            <a href="index.html" class="navbar-brand nav-text d-flex w-50 mr-auto">Deutsche Bank Investment Services</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+                <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-text" ng-show="username" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                           {{username}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a href="#!portfolio" class="dropdown-item"> <span
 								class="input-group-addon"><i class="fa fa-chart-line"
 									aria-hidden="true"></i></span> Your portfolio
 							</a> <a href="#!settings" class="dropdown-item"> <span
@@ -81,11 +80,12 @@
 								class="input-group-addon"><i class="fa fa-sign-out-alt"
 									aria-hidden="true"></i></span> Sign out
 							</a>
-						</div></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+           </nav>
+
 	<%
 		globalHelper.setInfo("Set any value here for application level access");
 		boolean connectionStatus = globalHelper.bootstrapDBConnection();
@@ -119,5 +119,10 @@
 
 		<div ng-view></div>
 	</div>
+	    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">&copy; 2018 Deutsche Bank</span>
+        </div>
+    </footer>
 </body>
 </html>
