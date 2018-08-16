@@ -1,34 +1,107 @@
 var rootURL = "rws/services";
 
-var data = [
+var dataBuys = [
 	  {
-		    "age": "<5",
-		    "population": 2704659
+		    "age": "Astronomica",
+		    "population": 2889
 		  },
 		  {
-		    "age": "5-13",
-		    "population": 4499890
+		    "age": "Deuternoic",
+		    "population": 3933
 		  },
 		  {
-		    "age": "14-17",
-		    "population": 2159981
+		    "age": "Floral",
+		    "population": 3389
 		  },
 		  {
-		    "age": "18-24",
-		    "population": 3853788
+		    "age": "Galactia",
+		    "population": 5161
 		  },
 		  {
-		    "age": "25-44",
-		    "population": 14106543
+		    "age": "Celestial",
+		    "population": 4003
 		  },
 		  {
-		    "age": "45-64",
-		    "population": 8819342
+		    "age": "Heliosphere",
+		    "population": 1871
 		  },
 		  {
-		    "age": "≥65",
-		    "population": 612463
-		  }
+		    "age": "Jupiter",
+		    "population": 3204
+		  },
+		  {
+          	"age": "Interstella",
+          	"population": 1560
+          },
+          {
+          	"age": "Koronis",
+          	"population": 1913
+          },
+          {
+          	"age": "Eclipse",
+          	"population": 3456
+          },
+          {
+          	"age": "Borealis",
+          	"population": 2502
+          },
+          {
+          	"age": "Lunatic",
+          	"population": 1880
+          }
+
+		]
+
+var dataSells = [
+	  {
+		    "age": "Astronomica",
+		    "population": 2895
+		  },
+		  {
+		    "age": "Deuternoic",
+		    "population": 3932
+		  },
+		  {
+		    "age": "Floral",
+		    "population": 3808
+		  },
+		  {
+		    "age": "Galactia",
+		    "population": 3648
+		  },
+		  {
+		    "age": "Celestial",
+		    "population": 2986
+		  },
+		  {
+		    "age": "Heliosphere",
+		    "population": 2540
+		  },
+		  {
+		    "age": "Jupiter",
+		    "population": 3596
+		  },
+		  {
+          	"age": "Interstella",
+          	"population": 1005
+          },
+          {
+          	"age": "Koronis",
+          	"population": 2605
+          },
+          {
+          	"age": "Eclipse",
+          	"population": 739
+          },
+          {
+          	"age": "Borealis",
+          	"population": 3595
+          },
+          {
+          	"age": "Lunatic",
+          	"population": 4467
+          }
+
 		]
 
 getAllLinksAndTags();
@@ -52,22 +125,24 @@ $(document).ready(function() {
 		event.preventDefault();
 	});
 
-    //visStockChart(data);
-	//visBarChart(data);
-	visPieChart(data);
+	visPieChart1(dataBuys);
+	visPieChart2(dataSells);
 });
 
-function visPieChart(data) {
+function visPieChart1(data = data) {
 	var svg_width = 350;
 	var svg_height = 350;
-	var svg = d3.selectAll(".pie").append("svg").attr("width", svg_width).attr("height", svg_height);
+	var svg = d3.select(".pie1").append("svg").attr("width", svg_width).attr("height", svg_height);
     margin = {top: 0, right: 0, bottom: 0, left: 0},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"),
     radius = Math.min(width, height) / 2;
 
-var color = d3.scaleOrdinal(["#b71540", "#e55039", "#fa983a", "#E8E12D", "#b8e994", "#4CACA0", "#254C5F"]);
+var color = d3.scaleOrdinal(["#EAF2F8",
+                             "#D4E6F1",
+                             "#A9CCE3",
+                             "#7FB3D5"]);
 
 var pie = d3.pie()
     .sort(null)
@@ -103,123 +178,55 @@ data.forEach(function(el, idx, arr) {
       .style("font","10px sans-serif");
 }
 
-function visBarChart(data) {
-
-	var svg_width = 700;
-	var svg_height = 320;
-	var svg = d3.select("body").append("svg").attr("width", svg_width).attr("height", svg_height);
-    margin = {top: 20, right: 20, bottom: 30, left: 50},
+function visPieChart2(data) {
+	var svg_width = 350;
+	var svg_height = 350;
+	var svg = d3.select(".pie2").append("svg").attr("width", svg_width).attr("height", svg_height);
+    margin = {top: 0, right: 0, bottom: 0, left: 0},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
-    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"),
+    radius = Math.min(width, height) / 2;
 
-var x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
-    y = d3.scaleLinear().rangeRound([height, 0]);
-
-var g = svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-data.forEach(function(el, idx, arr) {
-	  arr[idx].frequency =+el.frequency
-	});
+var color = d3.scaleOrdinal(["#ffc47b",
+                             "#ffce91",
+                             "#ffd7a7",
+                             "#ffe1bd"
+]);
 
 
+var pie = d3.pie()
+    .sort(null)
+    .value(function(d) { return d.population; });
 
+var path = d3.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(0);
 
-  x.domain(data.map(function(d) { return d.letter; }));
-  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
-
-  g.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-
-  g.append("g")
-      .attr("class", "axis axis--y")
-      .call(d3.axisLeft(y).ticks(10, "%"))
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
-      .attr("text-anchor", "end")
-      .text("Frequency");
-
-  g.selectAll(".bar")
-    .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.letter); })
-      .attr("y", function(d) { return y(d.frequency); })
-      .attr("width", x.bandwidth())
-      .attr("height", function(d) { return height - y(d.frequency); })
-      .attr("fill", "steelblue")
-
-    $(".bar").hover(function() {
-        $(this).css("fill", "brown");
-    }, function(){
-    $(this).css("fill", "steelblue");
-    })
-
-}
-
-function visStockChart(data) {
-
-	var svg_width = 700;
-	var svg_height = 320;
-	var svg = d3.select(".stock-line").append("svg").attr("width", svg_width).attr("height", svg_height);
-    margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom,
-    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-var parseTime = d3.timeParse("%d-%b-%y");
-
-var x = d3.scaleTime()
-    .rangeRound([0, width]);
-
-var y = d3.scaleLinear()
-    .rangeRound([height, 0]);
-
-var line = d3.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.close); });
-
+var label = d3.arc()
+    .outerRadius(radius - 40)
+    .innerRadius(radius - 40);
 
 data.forEach(function(el, idx, arr) {
-	  arr[idx].date = parseTime(el.date);
-	  arr[idx].close =+el.close
+	  arr[idx].population =+el.population
 	});
 
-  x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain(d3.extent(data, function(d) { return d.close; }));
+  var arc = g.selectAll(".arc")
+    .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc");
 
-  g.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x))
-    .select(".domain")
-      .remove();
+  arc.append("path")
+      .attr("d", path)
+      .attr("fill", function(d) { return color(d.data.age); })
+      .style("stroke","#fff");
 
-  g.append("g")
-      .call(d3.axisLeft(y))
-    .append("text")
-      .attr("fill", "#000")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
-      .attr("text-anchor", "end")
-      .text("Price ($)");
-
-  g.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-linecap", "round")
-      .attr("stroke-width", 1.5)
-      .attr("d", line);
-
+  arc.append("text")
+      .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+      .attr("dy", "0.35em")
+      .text(function(d) { return d.data.age; })
+      .style("text-anchor","middle")
+      .style("font","10px sans-serif");
 }
 
 function getAllTags() {
