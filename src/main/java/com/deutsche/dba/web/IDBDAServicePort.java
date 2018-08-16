@@ -107,5 +107,10 @@ public interface IDBDAServicePort
     @Path("/get/data/raw")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getRawData();
+    
+    @GET
+    @Path("/get/counterparty/raw")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getRawCounterparty();
 
 }

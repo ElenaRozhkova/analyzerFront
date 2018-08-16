@@ -93,18 +93,19 @@
 					<table class="table raw-data-table table-sm">
 						<thead>
 							<tr>
-								<th>Row</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Email</th>
+								<th>Deal ID</th>
+								<th>Deal time</th>
+								<th>Deal type</th>
+								<th>Deal amount</th>
+								<th>Deal quanty</th>
+								<th>instrument name</th>
+								<th>counterparty name</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="row in rawData">
-								<td ng-bind="row.id"></td>
-								<td ng-bind="row.firstName"></td>
-								<td ng-bind="row.lastName"></td>
-								<td ng-bind="row.emailAdress"></td>
+							<tr ng-repeat="row in rawDealData">
+								<td ng-repeat="col in row track by $index">{{col}}</td>
+
 							</tr>
 						</tbody>
 					</table>

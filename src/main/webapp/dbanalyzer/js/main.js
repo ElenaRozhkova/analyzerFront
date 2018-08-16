@@ -25,14 +25,6 @@ app.controller("analyzerCtrl", [
 		"$httpParamSerializerJQLike",
 		function($scope, $http, $cookies, $httpParamSerializerJQLike) {
 			var rootURL = "rws/services";
-			
-			$scope.rawData = 
-					[{
-						id : 1,
-						firstName : "David",
-						lastName : "Weiss",
-						emailAdress : "mail@dweiss.eu"
-					}];
 
 			$scope.loginFromForm = function() {
 				var dataObj = {
@@ -108,6 +100,22 @@ app.controller("analyzerCtrl", [
 				}
 			}).then(function successfunction(response) {
 				console.log(response);
+				$scope.rawDealData = response.data;
+			}, function failfunction(response) {
+				console.log("fail");	
+			});
+			
+			$http({
+				method : "GET",
+				url : rootURL + '/get/counterparty/raw',
+				data : null,
+				dataType : "json",
+				headers : {
+					'Content-Type' : 'application/x-www-form-urlencoded'
+				}
+			}).then(function successfunction(response) {
+				console.log(response);
+				$scope.rawCounterpartyData = response.data;
 			}, function failfunction(response) {
 				console.log("fail");	
 			});

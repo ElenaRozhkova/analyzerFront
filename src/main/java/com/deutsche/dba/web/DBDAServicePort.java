@@ -179,6 +179,20 @@ public class DBDAServicePort implements IDBDAServicePort
     
     @Override
     @GET
+    @Path("/get/counterparty/raw")
+    public Response getRawCounterparty( ) {
+        String result = SQLQueries.toJSON(SQLQueries.counterpartyTable());
+        
+        if( result != null)
+        {
+            return Response.ok(result, MediaType.APPLICATION_JSON_TYPE).build();
+        }
+        else
+            return Response.status(400).entity(new SimpleJsonMessage("Data could not be retrieved")).build();
+    }
+    
+    @Override
+    @GET
     @Path("/get/buy/{usr}/{instr}")
     public Response getInstrumentBuyPrice(  @PathParam("usr")String usr,
     		@PathParam("instr")int instr ) {
@@ -212,7 +226,7 @@ public class DBDAServicePort implements IDBDAServicePort
     @Path("/get/mtb/{usr}/{instr}")
     public Response getInstrumentMtb(  @PathParam("usr")String usr,
     		@PathParam("instr")int instr ) {
-    	 String result = SQLQueries.mostTradedBy(instr);
+    	 String result = SQLQueries.toJSON(SQLQueries.mostTradedBy(instr));
         
         if( result != null)
         {
